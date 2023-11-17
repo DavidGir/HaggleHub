@@ -5,6 +5,8 @@
 ### Morning: Project Setup
 - [ ] Team kick-off meeting.
   - [ ] Decide on topic project.
+  - [ ] Strengths and weaknesses.
+  - [ ] Work methodology (vertical or horizontal).
 - [ ] Set up project repository.
 - [ ] Create project skeleton.
 
