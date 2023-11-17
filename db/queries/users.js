@@ -1,5 +1,7 @@
 const db = require('../connection');
 
+// Following code consists of helper functions:
+
 const getUsers = () => {
   return db.query('SELECT * FROM users;')
     .then(data => {
