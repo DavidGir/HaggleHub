@@ -4,18 +4,25 @@
 
 ### Morning: Project Setup
 - [ ] Team kick-off meeting.
+  - [ ] Decide on topic project.
 - [ ] Set up project repository.
 - [ ] Create project skeleton.
 
 ### Afternoon: Backend & Database Planning
 - [ ] Draft initial ERD.
+  - [ ] Once ERD is complete export as png and show to a mentor.
 - [ ] Set up PostgreSQL database.
 - [ ] Initialize Node.js and Express environment.
 
 ## Day 2: Backend Development
 
 ### Morning: API Development
-- [ ] Develop RESTful routes for item listing.
+- [ ] Plan/ Develop RESTful routes for item listing.
+  - Browse GET /example
+  - Read GET /example/:id
+  - Edit POST /example/:id
+  - Add POST /example
+  - Delete POST /example/:id/delete
 - [ ] Implement user registration and login.
 
 ### Afternoon: Backend Continuation & Frontend Setup
