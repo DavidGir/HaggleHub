@@ -10,15 +10,80 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/footer.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <header>
+      <nav>
+          <!-- Navigation Bar -->
+          <a href="/browse">Browse Collection</a>
+          <a href="/favorites">Favorites</a>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+      </nav>
+  </header>
+
+  <main>
+      <!-- Hero Section -->
+      <section id="hero">
+          <h1>Welcome to the Funko Pop Collectors Hub!</h1>
+          <p>Discover, collect, and trade your favorite Funko Pop figurines!</p>
+          <a href="/register" class="cta-button">Join Now</a>
+      </section>
+
+      <!-- Featured Items Section -->
+      <section id="featured-items">
+          <h2>Featured Funko Pops</h2>
+          <div class="item-list">
+              <!-- Dynamic item listings would be inserted here -->
+          </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+          <h2>About Our Community</h2>
+          <p>Learn more about our vibrant collector community and what makes us special.</p>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials">
+          <h2>Collector Testimonials</h2>
+          <div class="testimonials-list">
+              <!-- Testimonials content -->
+          </div>
+      </section>
+  </main>
+
+  <footer>
+    <div class="left-footer">
+      <!-- Store Icon and HaggleHub Name -->
+      <i class="fas fa-store"></i> HaggleHub
+
+      <!-- Social Media Icons -->
+      <div class="social-icons">
+          <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+
+  <div class="right-footer">
+      <!-- Need Assistance Section -->
+      <p>Need assistance?</p>
+      <div class="contact-info">
+          <i class="fas fa-phone"></i> (123) 456-7890
+          <i class="fas fa-envelope"></i> support@hagglehub.com
+      </div>
+  </div>
+  <!-- <p>&copy; 2023 HaggleHub: The Funko Pop Collectors Hub. All rights reserved.</p> -->
+  </footer>
 </body>
 
 </html>
