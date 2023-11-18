@@ -3,14 +3,15 @@
 ## Day 1: Project Planning & Initialization
 
 ### Morning: Project Setup
-- [ ] Team kick-off meeting.
-  - [ ] Decide on topic project.
-  - [ ] Strengths and weaknesses.
-  - [ ] Work methodology (vertical or horizontal).
-- [ ] Set up project repository.
-- [ ] Create project skeleton.
+- [x] Team kick-off meeting.
+  - [x] Decide on topic project.
+  - [x] Strengths and weaknesses. Majoritarily backend.
+  - [x] Work methodology (*vertical* or horizontal).
+- [x] Set up project repository.
+- [x] Create project skeleton.
 
 ### Afternoon: Backend & Database Planning
+- [ ] Make user stories.
 - [ ] Draft initial ERD.
   - [ ] Once ERD is complete export as png and show to a mentor.
 - [ ] Set up PostgreSQL database.
