@@ -1,0 +1,35 @@
+$footer-bg-color: #333;
+$footer-text-color: white;
+$link-color: white;
+$link-hover-color: #ddd;
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: $footer-bg-color;
+    color: $footer-text-color;
+    width: 100%;
+
+    .left-footer, .right-footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social-icons {
+        a {
+            color: $link-color;
+            margin-right: 10px;
+
+            &:hover {
+                color: $link-hover-color;
+            }
+        }
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+    }
+}
