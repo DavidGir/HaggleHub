@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS categories CASCADE;
+CREATE TABLE "categories"(
+    "id" SERIAL PRIMARY KEY NOT NULL,
+    "product_id" INTEGER REFERENCES products(id) NOT NULL ON DELETE CASCADE,
+    "name" VARCHAR(255) NOT NULL
+);

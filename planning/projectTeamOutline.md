@@ -13,10 +13,10 @@
 ### Afternoon: Backend & Database Planning
 - [x] Make user stories.
 - [x] Draft initial ERD.
-  - [ ] Once ERD is complete export as png and show to a mentor.
+  - [x] Once ERD is complete export as png and show to a mentor.
 - [ ] Set up PostgreSQL database.
   - [ ] Make the schemas; one table per file.
-- [ ] Initialize Node.js and Express environment.
+- [x] Initialize Node.js and Express environment.
 
 ## Day 2: Backend Development
 
