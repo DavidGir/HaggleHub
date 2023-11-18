@@ -8,7 +8,7 @@ As a seller, I am able to post(list), remove and mark my items as sold.
 
 As a collector, I want to be able to filter items with my preferences (i.e.: pricing (min-max price), collection category).
 
-As a collector, I would like to see recently added items, items on sale, etc. 
+As a collector, I would like to see recently added items, items on sale, etc.
 
 As a collector, I can copy product url to share with others.
 
