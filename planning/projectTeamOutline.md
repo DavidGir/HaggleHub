@@ -5,14 +5,14 @@
 ### Morning: Project Setup
 - [x] Team kick-off meeting.
   - [x] Decide on topic project.
-  - [x] Strengths and weaknesses. Majoritarily backend.
+  - [x] Strengths and weaknesses. Weakness - Team needs to focus on backend.
   - [x] Work methodology (*vertical* or horizontal).
 - [x] Set up project repository.
 - [x] Create project skeleton.
 
 ### Afternoon: Backend & Database Planning
-- [ ] Make user stories.
-- [ ] Draft initial ERD.
+- [x] Make user stories.
+- [x] Draft initial ERD.
   - [ ] Once ERD is complete export as png and show to a mentor.
 - [ ] Set up PostgreSQL database.
   - [ ] Make the schemas; one table per file.
