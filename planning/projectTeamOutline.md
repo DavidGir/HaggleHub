@@ -14,7 +14,7 @@
 - [x] Make user stories.
 - [x] Draft initial ERD.
   - [x] Once ERD is complete export as png and show to a mentor.
-- [ ] Set up PostgreSQL database.
+- [x] Set up PostgreSQL database.
   - [x] Make the schemas; one table per file.
 - [x] Initialize Node.js and Express environment.
 
