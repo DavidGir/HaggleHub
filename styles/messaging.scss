@@ -1,0 +1,78 @@
+// Variables for colors, sizes, etc.
+$background-color: #f1f1f1;
+$primary-color: #04AA6D;
+$secondary-color: red;
+$focus-color: #ddd;
+$shadow: 0 4px 8px rgba(0,0,0,0.2);
+$text-color: white;
+$border-radius: 5px;
+
+// General Style for the Popup
+.chat-popup {
+  // display: none; // Hidden by default
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid $background-color;
+  z-index: 9;
+  background-color: white;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+
+  // Style for the Chat Container
+  .chat-container {
+    max-width: 300px;
+    padding: 20px;
+
+    // Style for the Textarea
+    textarea {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px;
+      border: none;
+      background: $background-color;
+      resize: none;
+      min-height: 100px;
+
+      &:focus {
+        background-color: $focus-color;
+        outline: none;
+      }
+    }
+
+    // Style for the Buttons
+    .btn {
+      background-color: $primary-color;
+      color: $text-color;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      opacity: 0.8;
+
+      // Style for the Open Chat Button
+    .open-button {
+      background-color: #555;
+      color: $text-color;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      position: fixed;
+      bottom: 23px;
+      right: 28px;
+      z-index: 10;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    // Style for the Cancel Button
+    .cancel {
+      background-color: $secondary-color;
+    }
+  }
+}
+}
