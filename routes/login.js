@@ -7,6 +7,8 @@ router.get('/', (req, res) => {
 });
 
 // Route to handle login form submission:
-
+router.post('/', (req, res) => {
+  res.redirect('products');
+});
 
 module.exports = router;
