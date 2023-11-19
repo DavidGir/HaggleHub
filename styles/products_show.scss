@@ -1,0 +1,21 @@
+#hero {
+  background-color: white;
+  border-radius: 15px;
+}
+
+#hero img {
+  height: 550px;
+  width: 550px;
+}
+
+.related img {
+  height: 350px;
+  width: 350px;
+}
+
+.related, .reviews {
+  display: flex;
+  flex-direction: row;
+}
+
+

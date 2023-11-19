@@ -12,8 +12,12 @@ router.get('/', (req, res) => {
   res.render('products');
 });
 
-router.post('/', (req, res) => {
-  res.redirect('products');
+router.get('/favorites', (req, res) => {
+  res.render('products_favorites');
+})
+
+router.get('/:id', (req, res) => {
+  res.render('products_show')
 });
 
 
