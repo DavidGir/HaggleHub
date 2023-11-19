@@ -1,4 +1,4 @@
-INSERT INTO categories (product_id, category_id)
+INSERT INTO product_categories (product_id, category_id)
 VALUES (1, 1),
 (2, 2),
 (3, 3),
