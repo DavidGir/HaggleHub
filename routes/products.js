@@ -26,11 +26,18 @@ router.post('/', (req, res) => {
 
 router.get('/favorites', (req, res) => {
   res.render('products_favorites');
-})
+});
+
+router.get('/favourites/:id', (req, res) => {
+  res.redirect('products_show')
+});
 
 router.get('/:id', (req, res) => {
   res.render('products_show')
 });
 
+router.post('/:id/delete', (req, res) => {
+  res.send('delete')
+});
 
 module.exports = router;
