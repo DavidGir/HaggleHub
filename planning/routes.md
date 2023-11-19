@@ -4,14 +4,14 @@
 
 ## User Management:
 
-- POST /users/register 
+- POST /register 
   - Register a new user.
 
-- POST /users/login 
+- POST /login 
   - Authenticate a user.
 
-- GET /users/:id 
-  - Retrieve user profile information.
+<!-- - GET /users/:id 
+  - Retrieve user profile information. -->
 
 ## Products Overview:
 
