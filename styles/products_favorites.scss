@@ -1,0 +1,16 @@
+.related {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+img {
+  height: 250px;
+  width: 250px;
+  background-color: white;
+  border-radius: 15px;
+  margin: 15px;
+ }
+
