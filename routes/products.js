@@ -12,4 +12,9 @@ router.get('/', (req, res) => {
   res.render('products');
 });
 
+router.post('/', (req, res) => {
+  res.redirect('products');
+});
+
+
 module.exports = router;
