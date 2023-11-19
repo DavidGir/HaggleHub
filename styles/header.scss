@@ -1,0 +1,71 @@
+// Define variables for consistent styling
+$color-white: #fff;
+$color-light-gray: #ddd;
+$color-black: #000;
+$color-gray-dark: #333;
+$icon-size: 1.2rem;
+
+// list style
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: $color-black;
+  color: $color-white;
+  padding: 1rem;
+  width: 100%;
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      ul {
+        display: flex;
+
+        li {
+          padding: 0 1rem;
+
+          a {
+            text-decoration: none;
+            color: $color-white;
+
+            &:hover {
+              color: $color-light-gray;
+            }
+          }
+        }
+      }
+    }
+
+    .header-icons {
+      display: flex;
+      align-items: center;
+
+      > div {
+        margin-left: 20px;
+        cursor: pointer;
+
+        i {
+          font-size: $icon-size;
+          color: $color-white;
+
+          &:hover {
+            color: $color-light-gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+

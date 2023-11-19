@@ -1,9 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
 
   background: rgb(163, 208, 219);
   background: linear-gradient(
@@ -15,4 +13,8 @@ body {
     rgba(163, 208, 219, 1) 74%,
     rgba(163, 208, 219, 1) 100%
   );
+}
+
+main {
+  height: 100%;
 }
