@@ -15,7 +15,7 @@
 - [x] Draft initial ERD.
   - [x] Once ERD is complete export as png and show to a mentor.
 - [ ] Set up PostgreSQL database.
-  - [ ] Make the schemas; one table per file.
+  - [x] Make the schemas; one table per file.
 - [x] Initialize Node.js and Express environment.
 
 ## Day 2: Backend Development
