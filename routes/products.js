@@ -1,12 +1,7 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router = express.Router();
+
+// The following consists of all /products routes
 
 router.get('/', (req, res) => {
   const templateVars = {
@@ -15,32 +10,40 @@ router.get('/', (req, res) => {
   res.render('products', templateVars);
 });
 
-// Handle POST request - Process chat message
-router.post('/', (req, res) => {
-  // Access the message sent from the form
-  const message = req.body.msg;
-
-  // Test; eventually there will need to have logic to store messages in db:
-  console.log('Received message on /products:', message);
-
-  // After processing the message, redirect back to the products page
-  res.redirect('/products');
-});
-
 router.get('/favorites', (req, res) => {
   res.render('products_favorites');
 });
 
 router.get('/favourites/:id', (req, res) => {
-  res.redirect('products_show')
+  res.redirect('products_show');
 });
 
 router.get('/:id', (req, res) => {
-  res.render('products_show')
+  res.render('products_show');
 });
 
+router.post('/', (req, res) => {
+  console.log('Ok');
+
+  getProducts()
+    .then;
+});
+
+// // Handle POST request - Process chat message
+// router.post('/', (req, res) => {
+//   // Access the message sent from the form
+//   const message = req.body.msg;
+
+//   // Test; eventually there will need to have logic to store messages in db:
+//   console.log('Received message on /products:', message);
+
+//   // After processing the message, redirect back to the products page
+//   res.redirect('/products');
+// });
+
+
 router.post('/:id/delete', (req, res) => {
-  res.send('delete')
+  res.send('delete');
 });
 
 module.exports = router;
