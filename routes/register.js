@@ -1,21 +1,42 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router  = express.Router();
+const bcrypt = require('bcryptjs');
+// addUser is a function that adds a user upon registration:
+const { addUser } = require('../db/queries/users');
+
+
+// GET Routes:
 
 router.get('/', (req, res) => {
   res.render('register');
 });
 
+// -----------------------------------------------------------------------------
+
+// POST routes:
 
 router.post('/', (req, res) => {
-  res.redirect('login');
+  const { username, email, password } = req.body;
+
+  // Hash the password
+  const hashedPassword = bcrypt.hashSync(password, 10);
+
+  // Create new user with hashed password
+  addUser({ username, email, password: hashedPassword })
+    .then(user => {
+      // Handle the response like log the user in or redirect:
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      res.redirect('/login');
+    })
+    .catch(err => {
+      // Handle errors, e.g., username already taken or database errors
+      console.log('Registration error:', err.message);
+      res.redirect('/register');
+    });
 });
+
+
 
 
 
