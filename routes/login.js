@@ -8,12 +8,11 @@ const bcrypt = require('bcryptjs');
 
 // Route to display the login form:
 router.get('/', (req, res) => {
-
-
-
-  res.render('login');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('login', templateVars);
 });
-
 
 
 // -----------------------------------------------------------------------------
@@ -27,19 +26,12 @@ router.post('/', (req, res) => {
 
   getUserByUsername(username)
     .then(user => {
-      if (!user) {
-        // User not found:
-        res.status(403).send("Invalid login credentials.");
-      } else if (!bcrypt.compareSync(password, user.password)) {
-        // Password does not match
+      // If user not found and password not a match:
+      if (!user || !bcrypt.compareSync(password, user.password)) {
         res.status(403).send("Invalid login credentials.");
       } else {
         // Successful login
-        // Set user information in the session cookie
-        // Storing user ID in the cookie:
-        req.session.userId = user.id;
-        // Storing user username:
-        req.session.username = user.username;
+        req.session.user = { id: user.id, username: user.username };
         res.redirect('/products');
       }
     })
@@ -50,5 +42,11 @@ router.post('/', (req, res) => {
     });
 });
 
+// Logout route:
+router.post('/logout', (req, res) => {
+  // Clear session:
+  req.session = null;
+  res.redirect('/login');
+});
 
 module.exports = router;
