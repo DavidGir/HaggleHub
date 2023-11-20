@@ -3,11 +3,10 @@ const router = express.Router();
 
 // The following consists of all /products routes
 
+// The following consists of all /products routes
+
 router.get('/', (req, res) => {
-  const templateVars = {
-    user: req.session.user
-  };
-  res.render('products', templateVars);
+  res.render('products');
 });
 
 router.get('/favorites', (req, res) => {
