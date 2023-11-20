@@ -8,6 +8,8 @@ const morgan = require('morgan');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+// Import cookieSession middleware:
+const cookieSession = require("cookie-session");
 
 app.set('view engine', 'ejs');
 
@@ -25,6 +27,11 @@ app.use(
   })
 );
 app.use(express.static('public'));
+// Use of cookieSession in the app to parse incoming cookies off the req object:
+app.use(cookieSession({
+  name: "session",
+  keys: ["asdfghjkl"],
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
