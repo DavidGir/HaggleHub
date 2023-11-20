@@ -60,6 +60,7 @@ app.use('/register', registerRoutes);
 app.use('/admin', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/messages', messageRoutes);
+app.use('/logout', loginRoutes);
 
 
 // Note: mount other resources here, using the same pattern above
@@ -69,7 +70,10 @@ app.use('/messages', messageRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('index', templateVars);
 });
 
 app.listen(PORT, () => {
