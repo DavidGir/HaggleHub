@@ -10,6 +10,8 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 // Import cookieSession middleware:
 const cookieSession = require("cookie-session");
+// Import bcrypt:
+const bcrypt = require("bcryptjs");
 
 app.set('view engine', 'ejs');
 
@@ -31,6 +33,8 @@ app.use(express.static('public'));
 app.use(cookieSession({
   name: "session",
   keys: ["asdfghjkl"],
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 
 // Separated Routes for each Resource
