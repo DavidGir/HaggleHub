@@ -5,9 +5,20 @@
         <ul>
             <li><a href="/browse" class="">Browse Collection</a></li>
             <li><a href="/favorites">Favorites</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
         </ul>
+        <div class="ml-auto">
+          <% if (!user) { %>
+            <!-- Display login and register buttons -->
+            <a class="btn btn-outline-light mr-2" href="/login">Login</a>
+            <a class="btn btn-outline-light" href="/register">Register</a>
+          <% } else { %>
+            <!-- Display user's username and logout button -->
+            <span>Logged in as: <%= user.username %></span>
+            <form method="POST" action="/logout" style="display: inline;">
+              <button type="submit" class="btn btn-success">Logout</button>
+            </form>
+          <% } %>
+        </div>
     </nav>
     <div class="header-icons">
         <div class="search-icon">
