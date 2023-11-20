@@ -1,6 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const { getUserByUsername } = require('../db/queries/users');
+const bcrypt = require('bcryptjs');
+
 
 // GET Routes:
 
