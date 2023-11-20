@@ -45,7 +45,6 @@ const usersRoutes = require('./routes/users');
 const productsRoutes = require('./routes/products');
 const registerRoutes = require('./routes/register');
 const loginRoutes = require('./routes/login');
-const adminRoutes = require('./routes/admin');
 const messageRoutes = require('./routes/messages');
 
 // Mount all resource routes
@@ -58,7 +57,7 @@ app.use('/products', productsRoutes);
 app.use('/products/favorites', productsRoutes);
 app.use('/products/:id', productsRoutes);
 app.use('/register', registerRoutes);
-app.use('/admin', adminRoutes);
+app.use('/admin', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/messages', messageRoutes);
 

@@ -10,6 +10,21 @@ const router  = express.Router();
 
 router.get('/', (req, res) => {
   res.render('users');
-}); 
+});
+
+router.post('/', (req, res) => {
+  res.redirect('users');
+});
+
+// Route to display the admin dash:
+router.get('/admin', (req, res) => {
+  res.render('admin');
+});
+
+// Route to handle admin form submission:
+router.post('/admin', (req, res) => {
+  res.redirect('admin');
+});
+
 
 module.exports = router;
