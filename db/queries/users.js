@@ -10,7 +10,7 @@ const getUsers = () => {
 };
 
 // This function will retrieve a user from the database based on the username. This is useful for the login process where you need to check if the user exists and then verify the password:
-const getUserByUsername = () => {
+const getUserByUsername = (username) => {
   const queryString = `SELECT * FROM users WHERE username = $1;`;
   const values = [username];
 
