@@ -9,7 +9,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('products');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('products', templateVars);
 });
 
 // Handle POST request - Process chat message
