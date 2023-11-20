@@ -6,14 +6,17 @@ const router = express.Router();
 // The following consists of all /products routes
 
 router.get('/', (req, res) => {
-  res.render('products');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('products', templateVars);
 });
 
 router.get('/favorites', (req, res) => {
   res.render('products_favorites');
 });
 
-router.get('/favourites/:id', (req, res) => {
+router.get('/favorites/:id', (req, res) => {
   res.redirect('products_show');
 });
 
