@@ -9,12 +9,12 @@ $border-radius: 5px;
 
 // General Style for the Popup
 .chat-popup {
-  // display: none; // Hidden by default
+  display: none; // Hidden by default
   position: fixed;
   bottom: 0;
   right: 15px;
   border: 3px solid $background-color;
-  z-index: 9;
+  z-index: 100;
   background-color: white;
   border-radius: $border-radius;
   box-shadow: $shadow;
