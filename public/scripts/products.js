@@ -42,10 +42,10 @@ const loadProducts = function() {
 
 // Function to render favorites / filtered products from database
 const renderFavorites = function(arrOfFavorites) {
-  $('#favorites').empty();
+  $('.favorites-grid').empty();
   for (const favorite of arrOfFavorites) {
     const $favoriteElement = createFavoriteElement(favorite);
-    $('#favorites').prepend($favoriteElement);
+    $('.favorites-grid').prepend($favoriteElement);
   }
 
 };
@@ -54,10 +54,16 @@ const renderFavorites = function(arrOfFavorites) {
 const createFavoriteElement = function(favoritesObj) {
 
   const $element = $(
-    `<div>
-    <img src="${favoritesObj.thumbnail_photo_url}"
-    alt="">
-    <p>${favoritesObj.title}</p>
+    `<div class="favorite-product">
+        <img
+          src="${favoritesObj.thumbnail_photo_url}"
+          alt="">
+        <div class="item-details">
+        <a href="/products/:id">
+          <h3 class="item-name">${favoritesObj.title}</h3>
+        </a>
+          <p class="item-price">${favoritesObj.price}</p>
+        </div>
     </div>`
   );
 
