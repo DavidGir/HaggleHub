@@ -3,6 +3,17 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1em;
   margin: 1em 1em;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+}
+
+.favorite-product {
+  flex: 0 0 auto; /* This ensures items don't shrink and are laid out inline */
+  margin-right: 10px; /* Adjust spacing between items */
 }
 
 .favorites-header {
@@ -45,4 +56,13 @@ main {
   background-color: #f0ece2;
 }
 
+.favorites-controls {
+  text-align: center;
+  margin-top: 10px;
+}
 
+.favorites-controls i {
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 24px;
+}
