@@ -34,30 +34,30 @@
   <main>
     <!-- Hero Section -->
     <section id="hero">
-      <img
-        src="https://st4.depositphotos.com/11698096/24118/i/450/depositphotos_241181638-stock-photo-kyiv-ukraine-january-2019-funko.jpg"
-        alt="">
+      <div class="hero-inner">
+        <h1>Haggle Hub</h3>
+        <h2>The best Funko Pops you'll ever find!</h4>
+      </div>
     </section>
 
     <!-- Featured Items Section -->
-    <section id="featured-items">
-      <h2>Funko Pops</h2>
+    <section id="filter-items">
       <div>
-        <form>
-          <input type="text" id="search" />
-          <button type="input">Search</button>
+        <form class="m-4" method="post" action="/api/products">
+          <input class="form-control" type="text" name="category" id="category" placeholder="Category" />
+          <input class="form-control" type="text" name="min_price" id="min_price" placeholder="Min-price" />
+          <input class="form-control" type="text" name="max_price" id="max_price" placeholder="Max-price" />
+          <button type="submit" class="btn btn-primary">Search</button>
+          <br>
+          <button type="submit" class="btn btn-primary">Featured</button>
+          <button type="submit" class="btn btn-primary">Price: Low to High</button>
+          <button type="submit" class="btn btn-primary">Price: High to Low</button>
         </form>
-        <br>
-        <div>
-          <button type="input">New Arrivals</button>
-          <button type="input">Exclusive</button>
-          <button type="input">Trending</button>
-        </div>
       </div>
     </section>
 
     <section>
-      <h3>Categories</h3>
+      <h3 class="category-title">Categories</h3>
       <div id="products">
         <div>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnEM2LpJU-SXPkNeGqyxRD8kPTEXX219UoCg&usqp=CAU"

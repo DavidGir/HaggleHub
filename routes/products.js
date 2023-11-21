@@ -13,7 +13,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/favorites', (req, res) => {
-  res.render('products_favorites');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('products_favorites', templateVars);
 });
 
 router.get('/favorites/:id', (req, res) => {
@@ -24,12 +27,6 @@ router.get('/:id', (req, res) => {
   res.render('products_show');
 });
 
-router.post('/', (req, res) => {
-  console.log('Ok');
-
-  getProducts()
-    .then;
-});
 
 // // Handle POST request - Process chat message
 // router.post('/', (req, res) => {
