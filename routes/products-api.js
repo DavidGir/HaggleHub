@@ -13,14 +13,49 @@ router.get('/', (req, res) => {
   // console.log(req.body);
   database.getProducts(req.query, 10)
     .then((rows) => {
-      res.json(rows)
+      res.json(rows);
     })
     .catch(error => {
       console.error(error);
       res.send(error);
-    })
+    });
 
 });
+
+router.get('/favorites', (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not authorized' });
+  }
+
+  const userId = req.session.user.id;
+
+  database.getUserFavorites(userId)
+    .then(rows => {
+      res.json(rows);
+    })
+    .catch(error => {
+      console.error('Error fetching user favorites:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    });
+});
+
+
+
+router.post('/favorites', (req, res) => {
+  // Get user ID from session
+  const userId = req.session.userId;
+  // Get product ID from request body
+  const { productId } = req.body;
+
+  database.addFavorite(userId, productId)
+    .then(favorite => {
+      res.json(favorite);
+    })
+    .catch(err => {
+      res.send(err.message);
+    });
+});
+
 
 
 module.exports = router;
