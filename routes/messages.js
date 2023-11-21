@@ -3,7 +3,10 @@ const router  = express.Router();
 
 // Route to display the login form:
 router.get('/', (req, res) => {
-  res.render('messages');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('messages', templateVars);
 });
 
 // Route to handle login form submission:
