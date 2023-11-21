@@ -71,5 +71,21 @@ const loadFavorites = function() {
     });
 };
 
+const sendFilterRequest = (filters) => {
+  $.get('/api/products', filters)
+    .then(data => {
+      renderProducts(data);
+    })
+    .catch(error => console.error(error));
+};
 
+$('#filter-items').on('submit', function(event) {
+  event.preventDefault();
+  const filters = {
+    category: $('#category').val(),
+    min_price: $('#min-price').val(),
+    max_price: $('#max-price').val()
+  };
+  sendFilterRequest(filters);
+});
 

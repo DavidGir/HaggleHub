@@ -2,9 +2,48 @@ const db = require('../connection');
 
 // Following code consists of db queries:
 
-const getProducts = (options, limit = 10) => {
-  return db.query(`SELECT * FROM products
-  LIMIT $1;`, [limit])
+const getProducts = (options, limit = 12) => {
+  const queryParams = [];
+
+  let queryString = `
+  SELECT *
+  FROM products `;
+
+  const filters = [options.category, options.min_price, options.max_price].filter(element => element !== undefined).filter(element => element);
+
+  if (filters.length) {
+    queryString += `WHERE `;
+  }
+
+  if (options.category) {
+    queryParams.push(`%${options.category}%`);
+    queryString += `category LIKE $${queryParams.length}`;
+  }
+
+  if (options.min_price) {
+    queryParams.push(options.min_price);
+    if (queryString.includes('WHERE category')) {
+      queryString += `AND `;
+    }
+    queryString += `price >= $${queryParams.length} `;
+  }
+
+  if (options.max_price) {
+    queryParams.push(options.max_price);
+    if (queryString.includes('WHERE category') || queryString.includes('WHERE price')) {
+      queryString += `AND `;
+    }
+    queryString += `price <= $${queryParams.length} `;
+  }
+
+  queryParams.push(limit);
+  queryString += `
+  LIMIT $${queryParams.length};
+  `;
+
+  console.log(queryString, queryParams);
+
+  return db.query(queryString, queryParams)
     .then(data => {
       return data.rows;
     });
@@ -49,53 +88,3 @@ const getUserFavorites = (userId) => {
 
 
 module.exports = { getProducts, addFavorite, getUserFavorites };
-const getProducts = (options, limit = 12) => {
-  const queryParams = [];
-
-  let queryString = `
-  SELECT *
-  FROM products `
-
-  const filters = [options.category, options.min_price, options.max_price].filter(element => element !== undefined).filter(element => element);
-
-  if (filters.length) {
-    queryString += `WHERE `
-  }
-
-  if (options.category) {
-    queryParams.push(`%${options.category}%`);
-    queryString += `category LIKE $${queryParams.length}`;
-  }
-
-  if (options.min_price) {
-    queryParams.push(options.min_price * 100);
-    if (queryString.includes('WHERE category')) {
-      queryString += `AND `;
-    }
-    queryString += `price >= $${queryParams.length} `
-  }
-
-  if (options.max_price) {
-    queryParams.push(options.max_price * 100);
-    if (queryString.includes('WHERE category') || queryString.includes('WHERE min_price')) {
-      queryString += `AND `;
-    }
-    queryString += `price <= $${queryParams.length} `;
-  }
-
-
-  queryParams.push(limit);
-  queryString += `
-  LIMIT $${queryParams.length};
-  `;
-
-  console.log(queryString, queryParams);
-
-  return db.query(queryString, queryParams)
-  .then(data => {
-    return data.rows;
-  });
-}
-
-
-module.exports = { getProducts }

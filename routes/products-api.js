@@ -10,7 +10,6 @@ const router = express.Router();
 const database = require('../db/queries/products');
 
 router.get('/', (req, res) => {
-
   database.getProducts(req.query, 12)
     .then((rows) => {
       res.json(rows);
