@@ -1,12 +1,8 @@
 $(document).ready(function() {
 
-
-
-
   /////////////////////////////////////////////////
   //    get request for products in DB
   /////////////////////////////////////////////////
-
 
   loadProducts();
   loadFavorites();

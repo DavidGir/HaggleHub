@@ -30,12 +30,6 @@ router.get('/:id', (req, res) => {
   res.render('products_show', templateVars);
 });
 
-router.post('/', (req, res) => {
-  console.log('Ok');
-
-  getProducts()
-    .then;
-});
 
 // // Handle POST request - Process chat message
 // router.post('/', (req, res) => {
