@@ -13,7 +13,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/favorites', (req, res) => {
-  res.render('products_favorites');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('products_favorites', templateVars);
 });
 
 router.get('/favorites/:id', (req, res) => {
@@ -21,7 +24,10 @@ router.get('/favorites/:id', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.render('products_show');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('products_show', templateVars);
 });
 
 router.post('/', (req, res) => {
