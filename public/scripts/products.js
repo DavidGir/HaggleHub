@@ -62,7 +62,7 @@ const createFavoriteElement = function(favoritesObj) {
         <a href="/products/:id">
           <h3 class="item-name">${favoritesObj.title}</h3>
         </a>
-          <p class="item-price">${favoritesObj.price}</p>
+          <p class="item-price">$ ${favoritesObj.price}</p>
         </div>
     </div>`
   );
@@ -94,4 +94,3 @@ $('#filter-items').on('submit', function(event) {
   };
   sendFilterRequest(filters);
 });
-
