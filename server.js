@@ -55,6 +55,7 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/api/products', productApiRoutes);
+app.use('/api/products/favorites', productApiRoutes);
 app.use('/products', productRoutes);
 app.use('/register', registerRoutes);
 app.use('/admin', usersRoutes);
