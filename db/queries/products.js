@@ -2,14 +2,6 @@ const db = require('../connection');
 
 // Following code consists of db queries:
 
-const getProducts = (options, limit = 10) => {
-  return db.query(`SELECT * FROM products
-  LIMIT $1;`, [limit])
-    .then(data => {
-      return data.rows;
-    });
-};
-
 // When users add favorite products:
 const addFavorite = (userId, productId) => {
   const queryString = `
@@ -47,19 +39,17 @@ const getUserFavorites = (userId) => {
     });
 };
 
-
-module.exports = { getProducts, addFavorite, getUserFavorites };
 const getProducts = (options, limit = 12) => {
   const queryParams = [];
 
   let queryString = `
   SELECT *
-  FROM products `
+  FROM products`;
 
   const filters = [options.category, options.min_price, options.max_price].filter(element => element !== undefined).filter(element => element);
 
   if (filters.length) {
-    queryString += `WHERE `
+    queryString += `WHERE `;
   }
 
   if (options.category) {
@@ -72,7 +62,7 @@ const getProducts = (options, limit = 12) => {
     if (queryString.includes('WHERE category')) {
       queryString += `AND `;
     }
-    queryString += `price >= $${queryParams.length} `
+    queryString += `price >= $${queryParams.length} `;
   }
 
   if (options.max_price) {
@@ -92,10 +82,10 @@ const getProducts = (options, limit = 12) => {
   console.log(queryString, queryParams);
 
   return db.query(queryString, queryParams)
-  .then(data => {
-    return data.rows;
-  });
-}
+    .then(data => {
+      return data.rows;
+    });
+};
 
 
-module.exports = { getProducts }
+module.exports = { getProducts, addFavorite, getUserFavorites };
