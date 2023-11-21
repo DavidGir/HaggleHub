@@ -21,23 +21,23 @@
 ## Day 2: Backend Development
 
 ### Morning: API Development
-- [ ] Plan/ Develop RESTful routes for item listing.
+- [X] Plan/ Develop RESTful routes for item listing.
   - Browse GET /example
   - Read GET /example/:id
   - Edit POST /example/:id
   - Add POST /example
   - Delete POST /example/:id/delete
-- [ ] Implement user registration and login.
+- [X] Implement user registration and login.
 
 ### Afternoon: Backend Continuation & Frontend Setup
 - [ ] Admin functionalities implementation.
-- [ ] Start frontend environment setup.
+- [X] Start frontend environment setup.
 
 ## Day 3: Frontend Development
 
 ### Morning: Frontend Core Features
-- [ ] Develop main item feed.
-- [ ] Implement item filtering by price.
+- [X] Develop main item feed.
+- [X] Implement item filtering by price.
 
 ### Afternoon: Additional Frontend Features
 - [ ] Implement favorites feature.
