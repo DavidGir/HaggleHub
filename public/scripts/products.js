@@ -124,6 +124,21 @@ const deleteFavorite = (productId, $buttonElement) => {
     });
 };
 
+// AJAX Request to add a favorite product to favorites page:
+$(document).on('click', '.fav-btn', function(event) {
+  event.preventDefault();
+
+  const productId = $(this).data('product-id');
+  console.log("Clicked Product ID:", productId);
+  $.post('api/products/favorites', { productId: productId })
+    .then(() => {
+      // Change heart icon to red
+      $(this).find('.fa-heart').css('color', 'red');
+    })
+    .catch(err => {
+      console.log('Error in adding a favorite:', err.message);
+    });
+});
 
 
 ////////////////////////////////////////////////
