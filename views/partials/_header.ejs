@@ -14,7 +14,7 @@
           <% } else { %>
             <!-- Display user's username and logout button -->
             <span>Logged in as: <%= user.username %></span>
-            <form method="POST" action="/logout" style="display: inline;">
+            <form method="POST" action="/login/logout" style="display: inline;">
               <button type="submit" class="btn btn-success">Logout</button>
             </form>
           <% } %>
