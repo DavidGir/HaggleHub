@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1em;
   margin: 1em 1em;
-  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 0.8);
   border-radius: 10px;
   border: 1px solid #ccc;
   padding: 20px;
@@ -12,12 +12,20 @@
 }
 
 .favorite-product {
-  flex: 0 0 auto; /* This ensures items don't shrink and are laid out inline */
-  margin-right: 10px; /* Adjust spacing between items */
+  flex: 0 0 auto;
+  margin-right: 10px;
 }
 
 .favorites-header {
-  margin: 1em 1em;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  font-size: 2em; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  padding: 0.5em; /* Padding for spacing */
+  margin: 1em auto; /* Centering */
+  border-radius: 10px; /* Optional: Rounded corners for background */
 }
 
 .item-details a {
@@ -50,10 +58,13 @@ img {
   margin: 15px;
  }
 
-main {
+ main {
   width: 100%;
   height: 100%;
-  background-color: #f0ece2;
+  background-image: url(../images/favorites-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .favorites-controls {
