@@ -2,6 +2,18 @@ const db = require('../connection');
 
 // Following code consists of db queries:
 
+// Function to get all products from a db query:
+const getAllProducts = () => {
+  const queryString = `SELECT * FROM products;`;
+  return db.query(queryString)
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      console.log('Error executing getAllProducts query', err.message);
+    });
+};
+
 const getProducts = (options, limit = 12) => {
   const queryParams = [];
 
@@ -66,6 +78,7 @@ const addFavorite = (userId, productId) => {
 
   return db.query(queryString, values)
     .then(data => {
+      console.log("Favorite added:", data.rows);
       return data.rows;
     })
     .catch(err => {
@@ -112,4 +125,4 @@ const deleteFavorite = (userId, productId) => {
     });
 };
 
-module.exports = { getProducts, addFavorite, getUserFavorites, deleteFavorite };
+module.exports = { getAllProducts, getProducts, addFavorite, getUserFavorites, deleteFavorite };
