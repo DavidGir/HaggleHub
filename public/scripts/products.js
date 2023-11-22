@@ -30,8 +30,8 @@ const createProductElement = function(productsObj) {
     <p>${productsObj.title}</p>
     <a>
     <span class="admin-btn">
-      <button class="btn btn-outline-success">SOLD</button>
-      <button class="btn btn-outline-danger">DELETE</button>
+    <button class="sold btn btn-outline-success" data-product-id="${productsObj.id}">SOLD</button>
+    <button class="delete btn btn-outline-danger" data-product-id="${productsObj.id}">DELETE</button>
     </span>
     </div>`
   );
