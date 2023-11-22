@@ -59,15 +59,15 @@ const addFavorite = (userId, productId) => {
   const values = [userId, productId];
 
   return db.query(queryString, values)
-    .then(res => {
-      return res.rows;
+    .then(data => {
+      return data.rows;
     })
     .catch(err => {
       console.log('Error executing addFavorite query', err.message);
     });
 };
 
-// Query to users' favorites:
+// Query to get users' favorites:
 const getUserFavorites = (userId) => {
   const queryString = `
     SELECT *
@@ -78,13 +78,32 @@ const getUserFavorites = (userId) => {
   const values = [userId];
 
   return db.query(queryString, values)
-    .then(res => {
-      return res.rows;
+    .then(data => {
+      return data.rows;
     })
     .catch(err => {
       console.log('Error executing addFavorite query', err.message);
     });
 };
 
+// Function to handle deletion of a favorite product:
 
-module.exports = { getProducts, addFavorite, getUserFavorites };
+const deleteFavorite = (userId, productId) => {
+  // Store SQL query string:
+  const queryString = `
+    DELETE FROM favourites
+    WHERE user_id = $1 AND product_id = $2
+    RETURNING *;`;
+
+  const values = [userId, productId];
+
+  return db.query(queryString, values)
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      console.log('Error executing deleteFavorite query', err.message);
+    });
+};
+
+module.exports = { getProducts, addFavorite, getUserFavorites, deleteFavorite };
