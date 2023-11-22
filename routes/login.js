@@ -31,7 +31,11 @@ router.post('/', (req, res) => {
         res.status(403).send("Invalid login credentials.");
       } else {
         // Successful login
-        req.session.user = { id: user.id, username: user.username };
+        req.session.user = {
+          id: user.id,
+          username: user.username,
+          is_admin: user.is_admin
+        };
         res.redirect('/products');
       }
     })
