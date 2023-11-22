@@ -130,12 +130,14 @@
                 src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8a971ee6/images/funko/upload/70097_POPMarvel_CWBAS_SpiderMan_GLAM-WEB.png?sw=800&sh=800"
                 alt="">
             </div>
-            <span>
+            <% products.forEach(product => { %>
+           <span>
               <button class="close-popup-btn btn btn-outline-dark">X</button>
-              <button class="fav-btn btn btn-outline-danger">
-                <i class="fa-solid fa-heart" style="color: #383838;"></i>
-              </button>
+              <button class="fav-btn btn btn-outline-danger" data-product-id="<%= product.id %>">
+               <i class="fa-solid fa-heart" style="color: #383838;"></i>
+             </button>
             </span>
+           <% }) %>
             <div>
               <h3>Funko Pop Name</h3>
               <p>⭐⭐⭐⭐</p>

@@ -39,9 +39,14 @@ router.get('/favorites', (req, res) => {
 
 router.post('/favorites', (req, res) => {
   // Get user ID from session
-  const userId = req.session.userId;
+  const userId = req.session.user.id;
   // Get product ID from request body
-  const { productId } = req.body;
+  const productId = req.body.productId;
+  console.log("Received Product ID:", productId);
+  // Ensure user is logged in
+  if (!req.session.user) {
+    return res.status(403).send("You must be logged in to add favorites.");
+  }
 
   database.addFavorite(userId, productId)
     .then(favorite => {
