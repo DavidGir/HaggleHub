@@ -161,15 +161,9 @@ const createPopup = function(singleObj) {
     src="${singleObj.photo_url}"
     alt="">
     </div>
-    <span>
-      <button title="Close" class="close-popup-btn btn btn-outline-dark">X</button>
-      <button title="Add to Favorites" class="fav-btn btn btn-outline-danger">
-        <i class="fa-solid fa-heart"></i>
-      </button>
-    </span>
       <span>
-        <button class="close-popup-btn btn btn-outline-dark">X</button>
-        <button class="fav-btn btn btn-outline-danger" data-product-id="${singleObj.id}">
+        <button title="Close" class="close-popup-btn btn btn-outline-dark">X</button>
+        <button title="Add to Favorites" class="fav-btn btn btn-outline-danger" data-product-id="${singleObj.id}">
          <i class="fa-solid fa-heart" style="color: #383838;"></i>
        </button>
       </span>
