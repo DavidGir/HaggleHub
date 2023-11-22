@@ -140,7 +140,7 @@ $(document).on('click', '.fav-btn', function(event) {
       console.log('Error in adding a favorite:', err.message);
     });
 });
-
+ 
 
 ////////////////////////////////////////////////
 //       Ajax request for specific product
