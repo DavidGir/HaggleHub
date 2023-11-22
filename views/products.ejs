@@ -75,6 +75,7 @@
       </section>
 
       <!-- Admin post new item button -->
+      <% if (user && user.is_admin) { %>
       <section id="admin-funct">
         <div>
           <button class="add-new-item btn btn-outline-dark">Add new</button>
@@ -119,6 +120,7 @@
 
         </div>
       </section>
+      <% } %>
       <br>
 
       <section class="main-products">
@@ -157,10 +159,15 @@
               alt="">
             <p>Cats Funko Pop</p>
           </div>
+          <!-- Admin capacity to mark items as sold or remove a product -->
+          <% products.forEach(product => { %>
           <span>
+            <% if (user && user.is_admin) { %>
             <button class="sold btn btn-outline-success">SOLD</button>
             <button class="delete btn btn-outline-danger">DELETE</button>
           </span>
+            <% } %>
+          <% }) %>
           <div>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkmU3dZcrzJUflLCK_40wSKApdFXhDQcetTQ&usqp=CAU"
