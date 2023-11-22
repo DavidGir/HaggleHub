@@ -52,7 +52,10 @@ const getProducts = (options, limit = 12) => {
   return db.query(queryString, queryParams)
     .then(data => {
       return data.rows;
-    });
+    })
+    .catch(err => {
+      console.log('Error executing getProducts query: ', err.message);
+    });;
 };
 
 // When users add favorite products:
