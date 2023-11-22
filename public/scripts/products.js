@@ -47,12 +47,12 @@ const renderFavorites = function(arrOfFavorites) {
   $('.favorites-grid').empty();
   for (const favorite of arrOfFavorites) {
     const $favoriteElement = createFavoriteElement(favorite);
-    $('.favorites-grid').prepend($favoriteElement);
+    $('.favorites-grid').append($favoriteElement);
   }
 
 };
 
-// Function to create HTML to prepend favorites in the page
+// Function to create HTML to append favorites in the page
 const createFavoriteElement = function(favoritesObj) {
 
   const $element = $(
@@ -61,10 +61,11 @@ const createFavoriteElement = function(favoritesObj) {
           src="${favoritesObj.thumbnail_photo_url}"
           alt="">
         <div class="item-details">
-        <a href="/products/:id">
+        <a href="/products/${favoritesObj.id}">
           <h3 class="item-name">${favoritesObj.title}</h3>
         </a>
           <p class="item-price">$ ${favoritesObj.price}</p>
+          <button class="delete-favorite" data-product-id="${favoritesObj.id}">Delete</button>
         </div>
     </div>`
   );
@@ -100,6 +101,25 @@ $('#filter-items').on('submit', function(event) {
   };
   sendFilterRequest(filters);
 });
+
+// Attach event handler for delete button on products favorites page:
+$(document).on('click', '.delete-favorite', function() {
+  const productId = $(this).data('product-id');
+  deleteFavorite(productId, $(this));
+  loadFavorites();
+});
+
+const deleteFavorite = (productId, $buttonElement) => {
+  $.post(`/api/products/favorites/${productId}/delete`)
+    .then(() => {
+      $buttonElement.closest('.favorite-item').remove();
+    })
+    .catch(err => {
+
+      console.log('Error deleting favorite:', err.message);
+    });
+};
+
 
 /////////////////////////////////////////
 //       Ajax request for specific product

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const database = require('../db/queries/products');
 
 // The following consists of all /products routes
 
@@ -13,10 +14,26 @@ router.get('/', (req, res) => {
 });
 
 router.get('/favorites', (req, res) => {
-  const templateVars = {
-    user: req.session.user
-  };
-  res.render('products_favorites', templateVars);
+  if (!req.session.user) {
+    // Redirect to login page or render an error page if the user is not logged in:
+    return res.redirect('/login');
+  }
+
+  const userId = req.session.user.id;
+
+  database.getUserFavorites(userId)
+    .then(favorites => {
+      // Render the favorites page with the favorites data
+      const templateVars = {
+        favorites: favorites,
+        user: req.session.user
+      };
+      console.log(templateVars);
+      res.render('products_favorites', templateVars);
+    })
+    .catch(error => {
+      console.error('Error fetching user favorites:', error);
+    });
 });
 
 router.get('/favorites/:id', (req, res) => {

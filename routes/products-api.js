@@ -23,22 +23,19 @@ router.get('/', (req, res) => {
 
 router.get('/favorites', (req, res) => {
   if (!req.session.user) {
-    return res.status(401).json({ error: 'Not authorized' });
+    return res.redirect('login');
   }
 
   const userId = req.session.user.id;
 
   database.getUserFavorites(userId)
-    .then(rows => {
-      res.json(rows);
+    .then(favorites => {
+      res.json(favorites);
     })
     .catch(error => {
       console.error('Error fetching user favorites:', error);
-      res.status(500).json({ error: 'Internal server error' });
     });
 });
-
-
 
 router.post('/favorites', (req, res) => {
   // Get user ID from session
@@ -51,10 +48,25 @@ router.post('/favorites', (req, res) => {
       res.json(favorite);
     })
     .catch(err => {
-      res.send(err.message);
+      console.log('Error adding favorites:', err.message);
     });
 });
 
+// Route to process deletion request of a favorited product:
+router.post('/favorites/:productId/delete', (req, res) => {
+  const userId = req.session.user.id;
+  const productId = req.params.productId;
+  console.log(productId);
+
+  database.deleteFavorite(userId, productId)
+    .then(data => {
+      console.log('Favorite deleted:', data);
+      res.redirect('/products/favorites');
+    })
+    .catch(err => {
+      console.log('Error deleting favorite:', err.message);
+    });
+});
 
 
 module.exports = router;
