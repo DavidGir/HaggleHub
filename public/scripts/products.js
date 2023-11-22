@@ -152,7 +152,7 @@ const renderPopup = function(arrOfProducts) {
     $('.pop').append($popupElement);
     $('.pop').css("display", "flex");
   }
-}
+};
 
 const createPopup = function(singleObj) {
   const $popup = `
