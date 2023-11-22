@@ -4,13 +4,18 @@ const database = require('../db/queries/products');
 
 // The following consists of all /products routes
 
-// The following consists of all /products routes
-
 router.get('/', (req, res) => {
-  const templateVars = {
-    user: req.session.user
-  };
-  res.render('products', templateVars);
+  database.getAllProducts()
+    .then(products => {
+      const templateVars = {
+        user: req.session.user,
+        products: products
+      };
+      res.render('products', templateVars);
+    })
+    .catch(err => {
+      console.error('Error fetching products:', err.message);
+    });
 });
 
 router.get('/favorites', (req, res) => {
@@ -24,11 +29,12 @@ router.get('/favorites', (req, res) => {
   database.getUserFavorites(userId)
     .then(favorites => {
       // Render the favorites page with the favorites data
+      console.log("Favorites fetched:", favorites);
       const templateVars = {
         favorites: favorites,
         user: req.session.user
       };
-      console.log(templateVars);
+
       res.render('products_favorites', templateVars);
     })
     .catch(error => {
