@@ -8,7 +8,10 @@ const { addUser } = require('../db/queries/users');
 // GET Routes:
 
 router.get('/', (req, res) => {
-  res.render('register');
+  const templateVars = {
+    user: req.session.user
+  };
+  res.render('register', templateVars);
 });
 
 // -----------------------------------------------------------------------------
