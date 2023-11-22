@@ -116,7 +116,8 @@ $(document).on('click', '.delete-favorite', function() {
 const deleteFavorite = (productId, $buttonElement) => {
   $.post(`/api/products/favorites/${productId}/delete`)
     .then(() => {
-      $buttonElement.closest('.favorite-item').remove();
+      $buttonElement.closest('.favorite-product').remove();
+      loadFavorites();
     })
     .catch(err => {
 
@@ -152,7 +153,7 @@ const renderPopup = function(arrOfProducts) {
     $('.pop').append($popupElement);
     $('.pop').css("display", "flex");
   }
-}
+};
 
 const createPopup = function(singleObj) {
   const $popup = `
@@ -161,12 +162,12 @@ const createPopup = function(singleObj) {
     src="${singleObj.photo_url}"
     alt="">
     </div>
-    <span>
-      <button title="Close" class="close-popup-btn btn btn-outline-dark">X</button>
-      <button title="Add to Favorites" class="fav-btn btn btn-outline-danger">
-        <i class="fa-solid fa-heart"></i>
-      </button>
-    </span>
+      <span>
+        <button title="Close" class="close-popup-btn btn btn-outline-dark">X</button>
+        <button title="Add to Favorites" class="fav-btn btn btn-outline-danger" data-product-id="${singleObj.id}">
+         <i class="fa-solid fa-heart" style="color: #383838;"></i>
+       </button>
+      </span>
     <div>
       <p>ON SALE!</p>
       <h3>${singleObj.title}</h3>
@@ -194,7 +195,7 @@ $(document).on('click', '.single-product', function(event) {
   event.preventDefault();
   const filter = {
     id: $(this).attr('id')
-  }
+  };
   generatePopup(filter);
 
   // renderPopup(fakeData)
@@ -202,4 +203,4 @@ $(document).on('click', '.single-product', function(event) {
 
 $(document).on('click', '.close-popup-btn', function() {
   $(this).closest('.pop').hide();
-})
+});
