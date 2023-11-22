@@ -23,10 +23,12 @@ const renderProducts = function(arrOfProducts) {
 const createProductElement = function(productsObj) {
 
   const $element = $(
-    `<div>
+    `<div class="single-product" id="${productsObj.id}">
+    <a href="" method="post" action="/api/products">
     <img src="${productsObj.thumbnail_photo_url}"
     alt="">
     <p>${productsObj.title}</p>
+    <a>
     </div>`
   );
 
@@ -71,6 +73,10 @@ const loadFavorites = function() {
     });
 };
 
+/////////////////////////////////////////
+//       Ajax request for filters
+/////////////////////////////////////////
+
 const sendFilterRequest = (filters) => {
   $.get('/api/products', filters)
     .then(data => {
@@ -88,4 +94,77 @@ $('#filter-items').on('submit', function(event) {
   };
   sendFilterRequest(filters);
 });
+
+/////////////////////////////////////////
+//       Ajax request for specific product
+/////////////////////////////////////////
+
+const fakeData = [{
+  id: 3,
+  title: 'Spider-Man',
+  rating: 4,
+  price: 12,
+  description: 'Spider-Man swings into action in this Funko Pop!',
+  current_inventory: 24,
+  photo_url: 'https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8a971ee6/images/funko/upload/70097_POPMarvel_CWBAS_SpiderMan_GLAM-WEB.png?sw=800&sh=800'
+}]
+
+const renderPopup = function(arrOfProducts) {
+  $('.pop').empty();
+  for (const product of arrOfProducts) {
+    const $popupElement = createPopup(product);
+    $('.pop').append($popupElement);
+    $('.pop').css("display", "flex");
+  }
+}
+
+const createPopup = function(singleObj) {
+  const $popup = `
+  <div class="main-photo">
+    <img
+    src="${singleObj.photo_url}"
+    alt="">
+    </div>
+    <span>
+      <button class="close-popup-btn btn btn-outline-dark">X</button>
+      <button class="fav-btn btn btn-outline-danger">
+        <i class="fa-solid fa-heart" style="color: #383838;"></i>
+      </button>
+    </span>
+    <div>
+      <p>ON SALE!</p>
+      <h3>${singleObj.title}</h3>
+      <p>${singleObj.rating}/5</p>
+      <p>$ ${singleObj.price}</p>
+      <p>${singleObj.description}</p>
+      <p>Quantity available: ${singleObj.current_inventory}</p>
+
+      <a href="#">Add to cart</a>
+    </div>
+  `;
+
+  return $popup;
+};
+
+const generatePopup = (filter) => {
+  $.get('/api/products', filter)
+    .then(data => {
+      renderPopup(data);
+    })
+    .catch(error => console.error(error));
+};
+
+$(document).on('click', '.single-product', function(event) {
+  event.preventDefault();
+  const filter = {
+    id: $(this).attr('id')
+  }
+  generatePopup(filter);
+
+  // renderPopup(fakeData)
+});
+
+$(document).on('click', '.close-popup-btn', function() {
+  $(this).closest('.pop').hide();
+})
 
