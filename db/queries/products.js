@@ -9,10 +9,16 @@ const getProducts = (options, limit = 12) => {
   SELECT *
   FROM products `;
 
-  const filters = [options.category, options.min_price, options.max_price].filter(element => element !== undefined).filter(element => element);
+
+  const filters = [options.id, options.category, options.min_price, options.max_price].filter(element => element !== undefined).filter(element => element);
 
   if (filters.length) {
     queryString += `WHERE `;
+  }
+
+  if (options.id) {
+    queryParams.push(options.id);
+    queryString += `id = $${queryParams.length}`
   }
 
   if (options.category) {

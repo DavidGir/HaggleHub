@@ -17,7 +17,7 @@ body {
     /* Background styles */
     background-image: url(https://lastminutecontinue.com/wp-content/uploads/header_funkopop.jpg);
     background-size: cover;
-    background-position: center center;
+    background-position: center;
 
     .hero-inner {
       background-color: #f0ece2;
@@ -31,8 +31,52 @@ body {
     justify-content: center;
   }
 
-  section .category-title {
+  .category-title {
     margin-left: 55px;
+  }
+
+  section div.pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: none;
+    justify-content: center;
+    border-radius: 15px;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+
+    span button {
+      font-weight: bold;
+      font-size: x-small;
+      border-radius: 15px;
+      padding: 6px 10px;}
+
+    .close-popup-btn {
+      display: flex;
+      position: fixed;
+      transform: translate(360px, 10px);
+    }
+
+    .fav-btn {
+      display: flex;
+      position: fixed;
+      transform: translate(320px, 10px);
+      padding: 9px;
+    }
+
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-self:center
+    }
+    img {
+      max-height: 500px;
+      max-width: 500px;
+    }
   }
 
   #products {
