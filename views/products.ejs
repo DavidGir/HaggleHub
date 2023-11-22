@@ -32,7 +32,7 @@
 <body>
 
   <main>
-      <%- include('partials/_header') %>
+    <%- include('partials/_header') %>
       <!-- Hero Section -->
       <section id="hero">
         <div class="hero-inner">
@@ -44,16 +44,79 @@
       <!-- Featured Items Section -->
       <section id="filter-items">
         <div>
-          <form class="m-4" method="post" action="/api/products">
-            <input class="form-control" name="category" id="category" placeholder="Category" />
-            <input class="form-control" name="min_price" id="min-price" placeholder="Min-price" />
-            <input class="form-control" name="max_price" id="max-price" placeholder="Max-price" />
+          <button class="ext-search btn btn-outline-dark">Filter items</button>
+        </div>
+        <div class="form-container">
+          <div class="row mb-2">
+            <form class="m-4 filter" method="post" action="/api/products">
+            <div class="col-md-3 mr-2">
+              <input class="form-control" list="categoryOptions" name="category" id="category" placeholder="Category" />
+              <datalist id="categoryOptions">
+                <option value="Disney">
+                <option value="Marvel">
+                <option value="Harry Potter">
+                <option value="TV Shows">
+                <option value="Films">
+              </datalist>
+            </div>
+              <div class="col-md-3 mr-2">
+                <input class="form-control" name="min_price" id="min-price" placeholder="Min-price" />
+              </div>
+              <div class="col-md-3 mr-2">
+                <input class="form-control" name="max_price" id="max-price" placeholder="Max-price" />
+              </div>
             <button type="submit" class="btn btn-primary">Search</button>
             <br>
-            <button type="submit" class="btn btn-primary">Featured</button>
+            <!-- <button type="submit" class="btn btn-primary">Featured</button>
             <button type="submit" class="btn btn-primary">Price: Low to High</button>
-            <button type="submit" class="btn btn-primary">Price: High to Low</button>
+            <button type="submit" class="btn btn-primary">Price: High to Low</button> -->
           </form>
+          </div>
+      </section>
+
+      <!-- Admin post new item button -->
+      <section id="admin-funct">
+        <div>
+          <button class="add-new-item btn btn-outline-dark">Add new</button>
+        </div>
+        <br />
+        <div class="new-item form-container">
+          <form method="post" action="api/products">
+            <div class="row mb-2">
+              <div class="col-md-3 mb-2">
+                <input class="form-control" name="title" id="title" placeholder="Product Name" />
+              </div>
+              <div class="col-md-3 mb-2">
+                <textarea class="form-control" name="description" id="description" placeholder="Description"></textarea>
+              </div>
+              <div class="col-md-3 mb-2">
+                <input class="form-control" name="price" id="price" placeholder="Price" />
+              </div>
+              <div class="col-md-3 mb-2">
+                <input class="form-control" type="url" name="thumbnail_photo_url" id="thumbnail_photo_url"
+                  placeholder="Thumbnail Photo URL" />
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-md-3 mb-2">
+                <input class="form-control" type="url" name="photo_url" id="photo_url" placeholder="Main photo URL" />
+              </div>
+              <div class="col-md-3 mb-2">
+                <input class="form-control" name="category" id="category" placeholder="Category" />
+              </div>
+              <div class="col-md-3 mb-2">
+                <input class="form-control" name="posted_at" id="posted_at"
+                  placeholder='Posted at "YYYY-MM-DD HH:MM:SS.MSS" ' />
+              </div>
+              <div class="col-md-3 mb-2">
+                <input class="form-control" name="current_inventory" id="current_inventory" placeholder="Quantity" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add item</button>
+          </form>
+        </div>
+
         </div>
       </section>
       <br>
@@ -62,17 +125,17 @@
         <!-- Popup specific object -->
         <section>
           <div class="pop">
-           <div class="main-photo">
-             <img
-              src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8a971ee6/images/funko/upload/70097_POPMarvel_CWBAS_SpiderMan_GLAM-WEB.png?sw=800&sh=800"
-              alt="">
-           </div>
-           <span>
-             <button class="close-popup-btn btn btn-outline-dark">X</button>
-             <button class="fav-btn btn btn-outline-danger">
-               <i class="fa-solid fa-heart" style="color: #383838;"></i>
-             </button>
-           </span>
+            <div class="main-photo">
+              <img
+                src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8a971ee6/images/funko/upload/70097_POPMarvel_CWBAS_SpiderMan_GLAM-WEB.png?sw=800&sh=800"
+                alt="">
+            </div>
+            <span>
+              <button class="close-popup-btn btn btn-outline-dark">X</button>
+              <button class="fav-btn btn btn-outline-danger">
+                <i class="fa-solid fa-heart" style="color: #383838;"></i>
+              </button>
+            </span>
             <div>
               <h3>Funko Pop Name</h3>
               <p>⭐⭐⭐⭐</p>
@@ -92,12 +155,18 @@
               alt="">
             <p>Cats Funko Pop</p>
           </div>
-          <div><img
+          <span>
+            <button class="sold btn btn-outline-success">SOLD</button>
+            <button class="delete btn btn-outline-danger">DELETE</button>
+          </span>
+          <div>
+            <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkmU3dZcrzJUflLCK_40wSKApdFXhDQcetTQ&usqp=CAU"
               alt="">
             <p>Little Man Funko Pop</p>
           </div>
-          <div><img
+          <div>
+            <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZd3Qb2dUlD674Y_P2ek6i1x3elWXCkAeQ6w&usqp=CAU"
               alt="">
             <p>Other Little Man Funko Pop</p>
@@ -107,19 +176,19 @@
       <br>
 
 
-    <!-- Popup chat HTML -->
-    <!-- Button to open chat: -->
-    <button class="open-button" onclick="openForm()">Chat</button>
+      <!-- Popup chat HTML -->
+      <!-- Button to open chat: -->
+      <button class="open-button" onclick="openForm()">Chat</button>
 
-    <div class="chat-popup" id="myForm">
-      <form id="chatForm" class="chat-container">
-        <!-- <button class="open-button" onclick="openForm()">Chat</button> -->
-        <label for="msg"><b>Message</b></label>
-        <textarea placeholder="Type message.." name="msg" required></textarea>
-        <button type="submit" class="btn">Send</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-      </form>
-    </div>
+      <div class="chat-popup" id="myForm">
+        <form id="chatForm" class="chat-container">
+          <!-- <button class="open-button" onclick="openForm()">Chat</button> -->
+          <label for="msg"><b>Message</b></label>
+          <textarea placeholder="Type message.." name="msg" required></textarea>
+          <button type="submit" class="btn">Send</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
   </main>
 
   <%- include('partials/_footer') %>

@@ -29,6 +29,10 @@ const createProductElement = function(productsObj) {
     alt="">
     <p>${productsObj.title}</p>
     <a>
+    <span class="admin-btn">
+      <button class="btn btn-outline-success">SOLD</button>
+      <button class="btn btn-outline-danger">DELETE</button>
+    </span>
     </div>`
   );
 
@@ -121,19 +125,9 @@ const deleteFavorite = (productId, $buttonElement) => {
 };
 
 
-/////////////////////////////////////////
+////////////////////////////////////////////////
 //       Ajax request for specific product
-/////////////////////////////////////////
-
-const fakeData = [{
-  id: 3,
-  title: 'Spider-Man',
-  rating: 4,
-  price: 12,
-  description: 'Spider-Man swings into action in this Funko Pop!',
-  current_inventory: 24,
-  photo_url: 'https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8a971ee6/images/funko/upload/70097_POPMarvel_CWBAS_SpiderMan_GLAM-WEB.png?sw=800&sh=800'
-}]
+////////////////////////////////////////////////
 
 const renderPopup = function(arrOfProducts) {
   $('.pop').empty();
@@ -152,9 +146,9 @@ const createPopup = function(singleObj) {
     alt="">
     </div>
     <span>
-      <button class="close-popup-btn btn btn-outline-dark">X</button>
-      <button class="fav-btn btn btn-outline-danger">
-        <i class="fa-solid fa-heart" style="color: #383838;"></i>
+      <button title="Close" class="close-popup-btn btn btn-outline-dark">X</button>
+      <button title="Add to Favorites" class="fav-btn btn btn-outline-danger">
+        <i class="fa-solid fa-heart"></i>
       </button>
     </span>
     <div>

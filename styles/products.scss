@@ -27,8 +27,30 @@ body {
   }
 
   #filter-items {
-    display: flex;
-    justify-content: center;
+
+    button.ext-search {
+      display: flex;
+      margin: 10px auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  #admin-funct {
+    button.add-new-item {
+      display: flex;
+      margin: 0 auto;
+    }
+
+    div.new-item {
+      display: flex;
+      justify-content: center;
+    }
+
   }
 
   .category-title {
