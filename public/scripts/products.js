@@ -14,7 +14,7 @@ const renderProducts = function(arrOfProducts) {
   $('#products').empty();
   for (const product of arrOfProducts) {
     const $productElement = createProductElement(product);
-    $('#products').prepend($productElement);
+    $('#products').append($productElement);
   }
 
 };
@@ -53,7 +53,6 @@ const renderFavorites = function(arrOfFavorites) {
     const $favoriteElement = createFavoriteElement(favorite);
     $('.favorites-grid').append($favoriteElement);
   }
-
 };
 
 // Function to create HTML to append favorites in the page
@@ -215,10 +214,24 @@ $(document).on('click', '.single-product', function(event) {
     id: $(this).attr('id')
   };
   generatePopup(filter);
-
-  // renderPopup(fakeData)
 });
 
 $(document).on('click', '.close-popup-btn', function() {
   $(this).closest('.pop').hide();
 });
+
+////////////////////////////////////////////////
+//  Ajax request to load new added product
+////////////////////////////////////////////////
+
+$('#product-form').on('submit', function(e) {
+  e.preventDefault();
+
+  const formData = $(this).serialize();
+  $.post('/api/products', formData).then((res) => {
+    loadProducts();
+  });
+});
+
+
+
