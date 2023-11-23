@@ -128,4 +128,24 @@ const deleteFavorite = (userId, productId) => {
     });
 };
 
-module.exports = { getAllProducts, getProducts, addFavorite, getUserFavorites, deleteFavorite };
+// Function to handle deletion of a product:
+
+const deleteProduct = (productId) => {
+  // Store SQL query string:
+  const queryString = `
+    DELETE FROM products
+    WHERE id = $1
+    RETURNING *;`;
+
+  const values = [productId];
+
+  return db.query(queryString, values)
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      console.log('Error executing deleteProduct query', err.message);
+    });
+};
+
+module.exports = { getAllProducts, getProducts, addFavorite, getUserFavorites, deleteFavorite, deleteProduct };
