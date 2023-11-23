@@ -7,9 +7,11 @@ const database = require('../db/queries/products');
 router.get('/', (req, res) => {
   database.getAllProducts()
     .then(products => {
+      const isAdmin = req.session.user && req.session.user.is_admin;
       const templateVars = {
         user: req.session.user,
-        products: products
+        products: products,
+        isAdmin: isAdmin
       };
       res.render('products', templateVars);
     })
