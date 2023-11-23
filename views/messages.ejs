@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Products</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <title>Messages</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/footer.css" />
-    <link rel="stylesheet" href="/styles/header.css" />
-    <link rel="stylesheet" href="/styles/messages.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="/vendor/jquery-3.0.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
-    <script defer src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/messages.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script defer src="/scripts/app.js"></script>
+</head>
 
 <body>
-
   <%- include('partials/_header') %>
 
-  <div class="container">
-    <aside class="sidebar">
-        <!-- Sidebar with list of conversations -->
-        <ul class="conversation-list">
-            <!-- List items representing conversations -->
-            <li>Conversation 1</li>
-            <li>Conversation 2</li>
-            <!-- Add more conversations -->
-        </ul>
-    </aside>
-
-    <main class="chat-area">
-        <!-- Main chat area -->
-        <header class="chat-header">
-            <!-- Chat header with user's name or details -->
-            <h1> Crimson Script </h1>
-        </header>
-        <div class="chat-messages">
-            <!-- Container for messages -->
-            <p>Hello, there!</p>
+    <div class="main-container mt-4 mb-4">
+      <aside class="sidebar">
+        <div class="user-btns">
+          <a class="btn btn-success" href="#">User 1</a>
+          <a class="btn btn-success" href="#">User 3</a>
         </div>
-        <footer class="chat-footer">
-            <!-- Input area for typing new messages -->
-            <input type="text" placeholder="Type a message...">
-            <button>Send</button>
-        </footer>
-    </main>
-</div>
+      </aside>
 
-  <%- include('partials/_footer') %>
+      <main>
+        <!-- <div> -->
+          <div class="message-received mb-3">
+              <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwfad6465a/images/funko/upload/65759-POP-TV-The-Office---Fun-Run-Dwight-_GLAM-WEB.png?sw=800&sh=800" alt="">
+              <div class="rec-msg">
+                <p>User 3</p>
+                <p>Hi is this available?</p>
+              </div>
+                <form action="">
+                <button class="btn btn-success" type="submit">Reply</button>
+                </form>
+            </div>
+        <!-- </div> -->
+
+        <div class="send-message mb-4">
+          <form action="">
+            <textarea name="" id="" cols="100" rows="5"></textarea>
+            <button class="btn btn-success" type="submit">Send</button>
+          </form>
+        </div>
+
+      </main>
+
+    </div>
+    <%- include('partials/_footer') %>
 
 </body>
 
