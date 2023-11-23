@@ -4,7 +4,7 @@ const db = require('../connection');
 
 // Function to get all products from the db:
 const getAllProducts = () => {
-  const queryString = `SELECT * FROM products;`;
+  const queryString = `SELECT * FROM products WHERE is_sold = FALSE;`;
   return db.query(queryString)
     .then(data => {
       return data.rows;
@@ -175,7 +175,7 @@ const markProductAsSold = (productId) => {
 
   const queryString = `
     UPDATE products
-    SET current_inventory = 0
+    SET is_sold = TRUE
     WHERE id = $1
     RETURNING *;`;
 
