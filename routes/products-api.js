@@ -107,6 +107,25 @@ router.post('/:productId/delete', (req, res) => {
     });
 });
 
+// Route to mark item as sold:
+
+router.post('/:productId/sold', (req, res) => {
+  if (!req.session.user || !req.session.user.is_admin) {
+    return res.status(403).send("Unauthorized: Only admins can mark products as sold.");
+  }
+
+  const productId = req.params.productId;
+
+  database.markProductAsSold(productId)
+    .then(() => {
+      res.status(200).send("Product marked as sold successfully.");
+    })
+    .catch(err => {
+      console.error('Error marking product as sold:', err.message);
+    });
+});
+
+
 // Route to process deletion request of a favorited product:
 router.post('/favorites/:productId/delete', (req, res) => {
   const userId = req.session.user.id;
