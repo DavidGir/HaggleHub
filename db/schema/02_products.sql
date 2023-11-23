@@ -9,6 +9,6 @@ CREATE TABLE "products"(
     "photo_url" VARCHAR(255) NOT NULL,
     "category" VARCHAR(255) NOT NULL,
     "posted_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
-    "on_sale" BOOLEAN NOT NULL,
+    "on_sale" BOOLEAN DEFAULT FALSE,
     "current_inventory" INTEGER NOT NULL
 );

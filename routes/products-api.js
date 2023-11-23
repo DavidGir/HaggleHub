@@ -21,6 +21,37 @@ router.get('/', (req, res) => {
 
 });
 
+// Admin add new item:
+
+router.post('/', (req, res) => {
+
+
+  // Get user id from cookies
+  const adminId = req.session.user.id;
+
+  // Get information from Add new item form
+  const newItemObj = req.body;
+  const title = newItemObj.title;
+  const category = newItemObj.category;
+  const thumbnail_photo_url = newItemObj.thumbnail_photo_url;
+  const photo_url = newItemObj.photo_url;
+  const description = newItemObj.description;
+  const price = newItemObj.price;
+  const current_inventory = newItemObj.current_inventory;
+  // console.log('Received New Item: ', newItemObj)
+
+  // Send info to database query
+  database.addProduct(adminId, title, category, thumbnail_photo_url, photo_url, description, price, current_inventory)
+    .then(item => {
+
+      res.json({ success: true, item: item });
+    })
+    .catch(error => {
+      console.error('Error fetching new item:', error);
+    });
+});
+
+
 router.get('/favorites', (req, res) => {
   if (!req.session.user) {
     return res.redirect('login');
