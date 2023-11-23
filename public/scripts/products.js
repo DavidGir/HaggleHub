@@ -16,23 +16,28 @@ const renderProducts = function(arrOfProducts) {
     const $productElement = createProductElement(product);
     $('#products').append($productElement);
   }
-
 };
 
 // Function to create HTML to prepend products in the page
 const createProductElement = function(productsObj) {
 
+  let adminButtons = '';
+  // isAdmin is being brought from the global variable set as a script on the products.ejs file
+  if (isAdmin) {
+    adminButtons = `
+      <span class="admin-btn">
+        <button class="sold btn btn-outline-success" data-product-id="${productsObj.id}">SOLD</button>
+        <button class="delete btn btn-outline-danger" data-product-id="${productsObj.id}">DELETE</button>
+      </span>`;
+  }
+  // If user is indeed an admin the functionalities to be able to mark product as sold or delete a product will appear
   const $element = $(
     `<div class="single-product" id="${productsObj.id}">
-    <a href="" method="post" action="/api/products">
-    <img src="${productsObj.thumbnail_photo_url}"
-    alt="">
-    <p>${productsObj.title}</p>
-    <a>
-    <span class="admin-btn">
-    <button class="sold btn btn-outline-success" data-product-id="${productsObj.id}">SOLD</button>
-    <button class="delete btn btn-outline-danger" data-product-id="${productsObj.id}">DELETE</button>
-    </span>
+      <a href="" method="post" action="/api/products">
+        <img src="${productsObj.thumbnail_photo_url}" alt="">
+        <p>${productsObj.title}</p>
+      </a>
+      ${adminButtons}
     </div>`
   );
 
@@ -121,6 +126,23 @@ $(document).on('click', '.delete.btn.btn-outline-danger', function(event) {
         console.log('Error deleting product:', err.message);
       });
   }
+});
+
+// Attach event handler for sold button on products page:
+
+$(document).on('click', '.sold.btn.btn-outline-success', function(event) {
+  event.stopPropagation();
+  const productId = $(this).data('product-id');
+
+  $.post(`api/products/${productId}/sold`)
+    .then(()=> {
+      console.log('Product sold');
+      $(this).closest('.single-product').addClass('sold-out');
+      alert('Product has been marked as sold.');
+    })
+    .catch(err => {
+      console.log('Error marking product as sold', err.message);
+    });
 });
 
 // Attach event handler for delete button on products favorites page:
