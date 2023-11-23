@@ -1,5 +1,6 @@
 body {
   background: #f0ece2;
+  font-family: "Changa", sans-serif;
 
 
   #hero {
@@ -79,10 +80,6 @@ body {
     }
   }
 
-  .category-title {
-    margin-left: 55px;
-  }
-
   .single-product {
     display: flex;
     flex-direction: column;
@@ -101,6 +98,7 @@ body {
     width: 50%;
     margin: 0 auto;
     margin-bottom: 15px;
+    box-shadow: 5px 5px 1px 491px rgba(0,0,0,0.7);
 
     span button {
       font-weight: bold;
@@ -146,9 +144,22 @@ body {
       align-self: center;
     }
     img {
+      border-radius: 15px;
       max-height: 500px;
       max-width: 500px;
     }
+
+    .product-info {
+      background-color: #f0ece2;
+      margin-right: 100px;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .buy {
+      color: #BB2D3B
+    }
+
   }
 
   #products {
@@ -163,6 +174,10 @@ body {
       background-color: white;
       border-radius: 15px;
       margin: 15px;
+    }
+
+    p.product-title:hover {
+      cursor: pointer;
     }
   }
 }

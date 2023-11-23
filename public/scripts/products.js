@@ -36,7 +36,7 @@ const createProductElement = function(productsObj) {
       <a href="" method="post" action="/api/products">
         <img src="${productsObj.thumbnail_photo_url}" alt="">
         </a>
-        <p>${productsObj.title}</p>
+        <p class="product-title">${productsObj.title}</p>
       ${adminButtons}
     </div>`
   );
@@ -216,15 +216,13 @@ const createPopup = function(singleObj) {
         <button title="Email" class="email-btn btn btn-outline-blue" data-product-id="${singleObj.id}"><i class="fa-solid fa-envelope" style="color: #383838;"></i>
         </button>
       </span>
-    <div>
-      <p>ON SALE!</p>
-      <h3>${singleObj.title}</h3>
-      <p>${singleObj.rating}/5</p>
-      <p>$ ${singleObj.price}</p>
+    <div class="product-info">
+      <h2>${singleObj.title}</h2>
+      <h4>$ ${singleObj.price}</h4>
       <p>${singleObj.description}</p>
       <p>Quantity available: ${singleObj.current_inventory}</p>
 
-      <a href="#">Add to cart</a>
+      <a class="buy" href="#">Add to cart</a>
     </div>
   `;
 
