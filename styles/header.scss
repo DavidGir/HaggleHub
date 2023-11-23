@@ -17,7 +17,7 @@ header {
   color: $color-white;
   padding: 1rem;
   width: 100%;
-  
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -44,6 +44,11 @@ header {
             }
           }
         }
+      }
+
+      .user-funct {
+        display: flex;
+        
       }
     }
 

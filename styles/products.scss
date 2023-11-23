@@ -1,6 +1,7 @@
 body {
   background: #f0ece2;
 
+
   #hero {
     /* Sizing */
     width: 100vw;
@@ -15,14 +16,16 @@ body {
     text-align: center;
 
     /* Background styles */
-    background-image: url(https://lastminutecontinue.com/wp-content/uploads/header_funkopop.jpg);
+    background-image: url(https://i.ibb.co/p4Fd6Pz/funko-hagglehub-hero.png);
     background-size: cover;
     background-position: center;
 
     .hero-inner {
-      background-color: #f0ece2;
+      background-color: rgb(157 146 145 / 44%);
       border-radius: 15px;
       padding: 20px;
+      color: white;
+      text-shadow: 2px 2px #4b3b3b;
     }
   }
 
@@ -45,8 +48,13 @@ body {
     z-index: 1; /* Ensure it's above other content */
   }
 
-  #filter-items {
+  .no-user {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+  }
 
+  #filter-items {
     button.ext-search {
       display: flex;
       margin: 10px auto;
@@ -69,11 +77,16 @@ body {
       display: flex;
       justify-content: center;
     }
-
   }
 
   .category-title {
     margin-left: 55px;
+  }
+
+  .single-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   section div.pop {
@@ -93,7 +106,8 @@ body {
       font-weight: bold;
       font-size: x-small;
       border-radius: 15px;
-      padding: 6px 10px;}
+      padding: 6px 10px;
+    }
 
     .close-popup-btn {
       display: flex;
@@ -108,11 +122,10 @@ body {
       padding: 9px;
     }
 
-
     div {
       display: flex;
       flex-direction: column;
-      align-self:center
+      align-self: center;
     }
     img {
       max-height: 500px;

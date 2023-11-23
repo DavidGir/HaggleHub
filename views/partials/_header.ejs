@@ -2,41 +2,36 @@
   <div class="navbar">
     <div class="logo">HaggleHub</div>
     <nav>
-        <ul>
-            <li><a href="/products" class="">Browse Collection</a></li>
-            <li><a href="/products/favorites">Favorites</a></li>
-        </ul>
-        <div class="ml-auto">
-          <% if (!user) { %>
-            <!-- Display login and register buttons -->
-            <a class="btn btn-outline-light mr-2" href="/login">Login</a>
-            <a class="btn btn-outline-light" href="/register">Register</a>
-          <% } else { %>
-            <!-- Display user's username and logout button -->
-            <span>Logged in as: <%= user.username %></span>
-            <form method="POST" action="/login/logout" style="display: inline;">
-              <button type="submit" class="btn btn-success">Logout</button>
-            </form>
-          <% } %>
-        </div>
+      <ul>
+        <li><a href="/products" class="">Browse Collection</a></li>
+        <li><a href="/products/favorites">Favorites</a></li>
+        <li><a href="/messages">Messages</a></li>
+      </ul>
     </nav>
-    <div class="header-icons">
-        <div class="search-icon">
-          <form method="POST" action="/products">
-            <input type="text" name="search" id="search-bar" placeholder=" Search">
-            <button class="btn btn-outline-dark" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
+    <div class="user-funct">
+      <% if (!user) { %>
+        <!-- Display login and register buttons -->
+        <a class="btn btn-outline-light mr-2" href="/login">Login</a>
+        <a class="btn btn-outline-light" href="/register">Register</a>
+        <% } else { %>
+          <!-- Display user's username and logout button -->
+          <span>Logged in as: <%= user.username %></span>
+          <form method="POST" action="/login/logout" style="display: inline;">
+            <button type="submit" class="btn btn-success">Logout</button>
           </form>
-        </div>
-        <div class="cart-icon">
-            <i class="fas fa-shopping-basket"></i>
-        </div>
-        <div class="user-icon">
-          <span class="user name"></span>
-          <i class="fas fa-user"></i>
-        </div>
+          <% } %>
+    </div>
+    <div class="header-icons">
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-basket"></i>
+      </div>
+      <div class="user-icon">
+        <span class="user name"></span>
+        <i class="fas fa-user"></i>
+      </div>
     </div>
   </div>
 </header>
-
