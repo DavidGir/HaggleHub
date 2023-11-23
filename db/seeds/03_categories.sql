@@ -3,4 +3,6 @@ VALUES ('Disney'),
 ('Marvel'),
 ('Harry Potter'),
 ('TV Shows'),
-('Films')
+('Films'),
+('Anime'),
+('Music')
