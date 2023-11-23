@@ -2,7 +2,7 @@ const db = require('../connection');
 
 // Following code consists of db queries:
 
-// Function to get all products from a db query:
+// Function to get all products from the db:
 const getAllProducts = () => {
   const queryString = `SELECT * FROM products;`;
   return db.query(queryString)
@@ -14,7 +14,7 @@ const getAllProducts = () => {
     });
 };
 
-const getProducts = (options, limit = 12) => {
+const getProducts = (options, limit = 1000) => {
   const queryParams = [];
 
   let queryString = `
@@ -56,6 +56,7 @@ const getProducts = (options, limit = 12) => {
 
   queryParams.push(limit);
   queryString += `
+  ORDER BY id DESC
   LIMIT $${queryParams.length};
   `;
 
@@ -68,6 +69,26 @@ const getProducts = (options, limit = 12) => {
     .catch(err => {
       console.log('Error executing getProducts query: ', err.message);
     });;
+};
+
+// Admin: Add new item
+const addProduct = (admin_id, title, category, thumbnail_photo_url, photo_url, description, price, current_inventory) => {
+  const queryString = `
+  INSERT INTO products (admin_id, title, category, thumbnail_photo_url, photo_url, description, price, current_inventory, posted_at)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW())
+  RETURNING *;
+  `;
+
+  const values = [admin_id, title, category, thumbnail_photo_url, photo_url, description, price, current_inventory]
+
+  return db.query(queryString, values)
+    .then(data => {
+      // console.log('New item added:', data.rows)
+      return data.rows;
+    })
+    .catch(err => {
+      console.log('Error executing addProduct query', err.message);
+    });
 };
 
 // When users add favorite products:
@@ -128,4 +149,4 @@ const deleteFavorite = (userId, productId) => {
     });
 };
 
-module.exports = { getAllProducts, getProducts, addFavorite, getUserFavorites, deleteFavorite };
+module.exports = { getAllProducts, getProducts, addProduct, addFavorite, getUserFavorites, deleteFavorite };
