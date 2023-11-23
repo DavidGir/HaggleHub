@@ -47,7 +47,8 @@ const createProductElement = function(productsObj) {
 const loadProducts = function() {
   $.get('/api/products')
     .then(data => {
-      renderProducts(data);
+      // Filter out sold products
+      renderProducts(data.filter(product => !product.is_sold));
     });
 };
 
@@ -205,7 +206,8 @@ const createPopup = function(singleObj) {
         <button title="Close" class="close-popup-btn btn btn-outline-dark">X</button>
         <button title="Add to Favorites" class="fav-btn btn btn-outline-danger" data-product-id="${singleObj.id}">
          <i class="fa-solid fa-heart" style="color: #383838;"></i>
-       </button>
+        </button>
+        <button class="email-btn" data-product-id="${singleObj.id}">📧</button>
       </span>
     <div>
       <p>ON SALE!</p>
