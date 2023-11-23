@@ -42,6 +42,8 @@ const getMessages = (senderId, receiverId) => {
 
 
 const sendMessage = (product_id, sender_id, receiver_id, content, sent_date) => {
+  console.log('sendMessage function received:', product_id, sender_id, receiver_id, content, sent_date);
+
   const queryString = `
     INSERT INTO messages (product_id, sender_id, receiver_id, content, sent_date)
     VALUES ($1, $2, $3, $4, $5)
@@ -51,8 +53,12 @@ const sendMessage = (product_id, sender_id, receiver_id, content, sent_date) => 
 
   return db.query(queryString, values)
     .then(data => {
-      console.log('data in send Message')
+      console.log('sendMessage query result:', data.rows[0]);
       return data.rows[0];
+    })
+    .catch(error => {
+      console.error('Error in sendMessage query:', error);
+      throw error;
     });
 };
 
