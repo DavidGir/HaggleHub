@@ -207,7 +207,8 @@ const createPopup = function(singleObj) {
         <button title="Add to Favorites" class="fav-btn btn btn-outline-danger" data-product-id="${singleObj.id}">
          <i class="fa-solid fa-heart" style="color: #383838;"></i>
         </button>
-        <button class="email-btn" data-product-id="${singleObj.id}">📧</button>
+        <button title="Email" class="email-btn btn btn-outline-blue" data-product-id="${singleObj.id}"><i class="fa-solid fa-envelope" style="color: #383838;"></i>
+        </button>
       </span>
     <div>
       <p>ON SALE!</p>

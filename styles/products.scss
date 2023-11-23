@@ -108,6 +108,23 @@ body {
       padding: 9px;
     }
 
+    .email-btn {
+      display: flex;
+      position: fixed;
+      transform: translate(280px, 10px);
+      padding: 9px;
+    }
+
+    .btn-outline-blue {
+      color: blue;
+      border: 1px solid blue;
+      background-color: transparent;
+    }
+
+    .btn-outline-blue:hover {
+      color: white;
+      background-color: blue;
+    }
 
     div {
       display: flex;
