@@ -47,6 +47,7 @@ const productRoutes = require('./routes/products');
 const registerRoutes = require('./routes/register');
 const loginRoutes = require('./routes/login');
 const messageRoutes = require('./routes/messages');
+const messageApiRoutes = require('./routes/messages-api');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -61,6 +62,7 @@ app.use('/register', registerRoutes);
 app.use('/admin', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/messages', messageRoutes);
+app.use('/api/messages', messageApiRoutes);
 app.use('/logout', loginRoutes);
 
 
