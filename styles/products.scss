@@ -29,6 +29,7 @@ body {
   .sold-out {
     opacity: 0.5; /* Semi-transparent */
     pointer-events: none; /* Disable interactions */
+    position: relative; /* Needed to position the pseudo-element */
   }
 
   .sold-out::after {
@@ -41,6 +42,7 @@ body {
     color: red;
     background: white;
     padding: 5px;
+    z-index: 1; /* Ensure it's above other content */
   }
 
   #filter-items {
