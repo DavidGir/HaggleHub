@@ -148,4 +148,25 @@ const deleteProduct = (productId) => {
     });
 };
 
-module.exports = { getAllProducts, getProducts, addFavorite, getUserFavorites, deleteFavorite, deleteProduct };
+// Function to mark as sold:
+// In this case we are setting the current inventory of product to zero:
+const markProductAsSold = (productId) => {
+
+  const queryString = `
+    UPDATE products
+    SET current_inventory = 0
+    WHERE id = $1
+    RETURNING *;`;
+
+  const values = [productId];
+
+  return db.query(queryString, values)
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      console.log('Error executing markProductAsSold query', err.message);
+    });
+};
+
+module.exports = { getAllProducts, getProducts, addFavorite, getUserFavorites, deleteFavorite, deleteProduct, markProductAsSold };
