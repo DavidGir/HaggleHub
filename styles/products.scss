@@ -26,6 +26,23 @@ body {
     }
   }
 
+  .sold-out {
+    opacity: 0.5; /* Semi-transparent */
+    pointer-events: none; /* Disable interactions */
+  }
+
+  .sold-out::after {
+    content: "Sold Out";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: red;
+    background: white;
+    padding: 5px;
+  }
+
   #filter-items {
 
     button.ext-search {
