@@ -33,30 +33,34 @@
   <%- include('partials/_header') %>
 
     <main>
-    <!-- Favorites Section -->
-    <section id="favorites">
-      <h2 class="favorites-header">Favorites</h2>
-      <div class="favorites-grid">
-        <% favorites.forEach(function(favorite) { %>
-        <div class="favorite-product">
-            <img src="<%= favorite.thumbnail_photo_url %>" alt="">
-            <div class="item-details">
-              <a href="/products/<%= favorite.productId %>">
-                <h3 class="item-name"><%= favorite.title %></h3>
-              </a>
-              <p class="item-price">$<%= favorite.price %></p>
+      <!-- Favorites Section -->
+      <section id="favorites">
+        <h2 class="favorites-header">Favorites</h2>
+        <div class="favorites-grid">
+          <% favorites.forEach(function(favorite) { %>
+            <div class="favorite-product">
+              <img src="<%= favorite.thumbnail_photo_url %>" alt="">
+              <div class="item-details">
+                <a href="/products/<%= favorite.productId %>">
+                  <h3 class="item-name">
+                    <%= favorite.title %>
+                  </h3>
+                </a>
+                <p class="item-price">$<%= favorite.price %>
+                </p>
 
-              <button class="delete-favorite" data-product-id="<%= favorite.productId %>">Delete</button>
+                <button class="delete-favorite btn btn-outline-light"
+                  data-product-id="<%= favorite.productId %>">Delete</button>
 
+              </div>
             </div>
+            <% }) %>
         </div>
-        <% }) %>
-      </div>
-      <div class="favorites-controls">
-        <i class="fas fa-chevron-left" id="prev-favorite"></i>
-        <i class="fas fa-chevron-right" id="next-favorite"></i>
-      </div>
-    </section>
+        <div class="favorites-controls">
+          <i class="fas fa-chevron-left" id="prev-favorite"></i>
+          <i class="fas fa-chevron-right" id="next-favorite"></i>
+        </div>
+      </section>
 
     </main>
 
