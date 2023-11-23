@@ -57,6 +57,25 @@ router.post('/favorites', (req, res) => {
     });
 });
 
+// Route for deleting a product (Admin specific):
+router.post('/:productId/delete', (req, res) => {
+
+  if (!req.session.user || !req.session.user.is_admin) {
+    return res.status(403).send("Unauthorized: Only admins can delete products.");
+  }
+
+  const productId = req.params.productId;
+
+  database.deleteProduct(productId)
+    .then(data => {
+      console.log("Product successfully deleted", data);
+      res.redirect('/products');
+    })
+    .catch(err => {
+      console.error('Error deleting product:', err.message);
+    });
+});
+
 // Route to process deletion request of a favorited product:
 router.post('/favorites/:productId/delete', (req, res) => {
   const userId = req.session.user.id;
