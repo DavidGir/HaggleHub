@@ -106,6 +106,24 @@ $('#filter-items').on('submit', function(event) {
   sendFilterRequest(filters);
 });
 
+// Attach event handler for delete button on products page:
+$(document).on('click', '.delete.btn.btn-outline-danger', function(event) {
+  event.stopPropagation();
+  const productId = $(this).data('product-id');
+
+  if (confirm('Are you sure you want to delete this product?')) {
+    $.post(`api/products/${productId}/delete`)
+      .then(()=> {
+        console.log('Product deleted successfully');
+        $(`#product-${productId}`).remove();
+        loadProducts();
+      })
+      .catch(err => {
+        console.log('Error deleting product:', err.message);
+      });
+  }
+});
+
 // Attach event handler for delete button on products favorites page:
 $(document).on('click', '.delete-favorite', function() {
   const productId = $(this).data('product-id');
