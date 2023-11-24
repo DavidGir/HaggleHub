@@ -22,7 +22,7 @@ $(document).ready(function() {
     $.get(`/api/messages/${loggedInUserId}/${selectedUserId}`)
       .then(messages => {
         console.log("Fetched Messages: ", messages);
-        
+
         displayReceivedMessages(messages);
       })
       .catch(err => {
@@ -74,11 +74,13 @@ const displayReceivedMessages = (messages) => {
       <div class="mb-3 full-msg">
       <div class="product-info">
         <img src="${msg.thumbnail_photo_url}" alt="Product Image">
-        <p>${msg.sender_id.username} says:</p>
+        <p>${msg.product_name}</p>
         </div>
         <div class="msg-content">
         <div class="rec-msg">
+        <div class="paragraph">
           <p>${msg.sender_name}: ${msg.content}</p>
+        </div>
         </div>
         <form action="/messages">
           <button class="btn btn-success reply-btn" data-sender-id="${msg.sender_id}" data-product-id="${msg.product_id}">Reply</button>

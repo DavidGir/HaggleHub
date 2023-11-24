@@ -2,7 +2,7 @@ const db = require('../connection');
 
 const getMessages = (senderId, receiverId) => {
   const queryString = `
-  SELECT messages.*, users.username AS sender_name, products.thumbnail_photo_url
+  SELECT messages.*, users.username AS sender_name, products.thumbnail_photo_url, products.title AS product_name
   FROM messages
   JOIN users ON users.id = messages.sender_id
   JOIN products ON products.id = messages.product_id

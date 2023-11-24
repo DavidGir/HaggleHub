@@ -7,7 +7,6 @@ body {
     justify-content: space-between;
     height: 100vh;
 
-
     .sidebar {
       // border: 1px sol#ff00ffnta;
       border-radius: 15px;
@@ -20,23 +19,31 @@ body {
       }
     }
 
-    .msg-title{
+    .msg-title {
       text-align: center;
+    }
+
+
+    .message-collecction {
+      background: white;
     }
 
     .message-received {
       // border: 1px solid red;
       border-radius: 15px;
       width: 60vw;
-      min-height: 70vh;
+      min-height: 35vh;
       display: flex;
       justify-content: space-evenly;
-      background-color: rgba(128, 128, 128, 0.514);
+      flex-wrap: wrap;
+      // background-color: rgba(128, 128, 128, 0.514);
 
       .full-msg {
-
         display: flex;
-        
+
+        .product-info {
+          margin-top: 17px;
+        }
 
         img {
           height: 150px;
@@ -44,43 +51,54 @@ body {
         }
 
         .rec-msg {
-          background-color: white;
-        border-radius: 30px;
-        width: 50vw;
-        height: 16vh;
-        margin-top: 33px;
-        padding: 15px;
-      }
+          // background-color: white;
+          border-radius: 30px;
+          width: 50vw;
+          height: 16vh;
+          margin-top: 33px;
+          padding: 15px;
+        }
 
-      button {
-        position: relative;
-        right: -92%;
-        margin-top: 10px;
+        .paragraph {
+          background-color: white;
+          border-radius: 20px;
+          width: 50%;
+          padding: 15px;
+        }
+
+        button {
+          position: relative;
+          right: -92%;
+          margin-top: 10px;
+        }
       }
     }
-  }
 
     .send-message {
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       border-radius: 25px;
       width: 60vw;
-      display: flex;
-      justify-content: space-evenly;
+      // display: flex;
+      // justify-content: space-evenly;
       padding-bottom: 30px;
-      background-color: rgba(128, 128, 128, 0.514);
+      // background-color: rgba(128, 128, 128, 0.514);
       // initially hidden
       display: none;
 
-      textarea {
-        border-radius: 15px;
-        padding: 5px;
-        margin-top: 33px;
-      }
+      form {
 
-      button {
-        position: relative;
-        right: -9%;
-        top: -8%;
+        textarea {
+          border-style: none;
+          border-radius: 15px;
+          padding: 15px;
+          margin: 25px;
+          margin-bottom: 5px;
+          margin-left: 160px;
+        }
+
+        button {
+          margin-left: 1055px;
+        }
       }
     }
   }
