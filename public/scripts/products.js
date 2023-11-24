@@ -128,7 +128,12 @@ const clearFilterForm = function() {
   $category.val('');
   $min_price.val('');
   $max_price.val('');
-}
+};
+
+// Attach event handler for email icon on products popup details:
+$(document).on('click', '.email-btn', function() {
+  window.location.href = '/messages';
+});
 
 // Attach event handler for delete button on products page:
 $(document).on('click', '.delete.btn.btn-outline-danger', function(event) {
@@ -302,6 +307,6 @@ const clearNewItemForm = function() {
   $description.val('');
   $price.val('');
   $current_inventory.val('');
-}
+};
 
 
