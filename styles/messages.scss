@@ -55,6 +55,8 @@ body {
       justify-content: space-evenly;
       padding-bottom: 30px;
       background-color: rgba(128, 128, 128, 0.514);
+      // initially hidden
+      display: none;
 
       textarea {
         border-radius: 15px;
