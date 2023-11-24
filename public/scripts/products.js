@@ -163,7 +163,6 @@ $(document).on('click', '.sold.btn.btn-outline-success', function(event) {
     .then(() => {
       console.log('Product sold');
       $(this).closest('.single-product').addClass('sold-out');
-      alert('Product has been marked as sold.');
     })
     .catch(err => {
       console.log('Error marking product as sold', err.message);
