@@ -57,7 +57,7 @@ const populateUsersSidebar = function(users) {
   userBtnsContainer.empty();
 
   users.forEach(user => {
-    const userBtn = $('<a>').addClass('btn btn-success user-btn')
+    const userBtn = $('<a>').addClass('btn btn-danger user-btn')
       .attr('data-user-id', user.id)
       .text(user.username);
     userBtnsContainer.append(userBtn);
@@ -71,17 +71,23 @@ const displayReceivedMessages = (messages) => {
 
   messages.forEach(msg => {
     const messageElement = $(`
-      <div class="message-received mb-3">
+      <div class="mb-3 full-msg">
+      <div class="product-info">
         <img src="${msg.thumbnail_photo_url}" alt="Product Image">
+        <p>${msg.sender_id.username} says:</p>
+        </div>
+        <div class="msg-content">
         <div class="rec-msg">
           <p>${msg.sender_name}: ${msg.content}</p>
         </div>
         <form action="/messages">
           <button class="btn btn-success reply-btn" data-sender-id="${msg.sender_id}" data-product-id="${msg.product_id}">Reply</button>
         </form>
+        </div>
       </div>
     `);
     messagesContainer.append(messageElement);
+    // console.log(msg);
   });
 };
 

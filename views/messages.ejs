@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/footer.css" />
@@ -37,32 +40,39 @@
 
     <div class="main-container mt-4 mb-4">
       <aside class="sidebar">
-        <div class="user-btns">
+        <h4 class="m-3">Chats</h4>
+        <div class="user-btns d-grid gap-2 col-10 mx-auto">
           <a class="btn btn-success user-btn" href="#" data-user-id="1">User 1</a>
-         <a class="btn btn-success user-btn" href="#" data-user-id="3">User 3</a>
+          <a class="btn btn-success user-btn" href="#" data-user-id="3">User 3</a>
         </div>
       </aside>
 
       <main>
         <div>
-          <div class="message-received mb-3">
-              <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwfad6465a/images/funko/upload/65759-POP-TV-The-Office---Fun-Run-Dwight-_GLAM-WEB.png?sw=800&sh=800" alt="">
-              <div class="rec-msg">
-                <p>User 3</p>
-                <p>Hi is this available?</p>
-              </div>
-              <form action="/api/messages" method="post">
-                <button class="btn btn-success reply-btn" type="submit">Reply</button>
-              </form>
+          <h2 class="msg-title">Messages</h2>
+          <div class="message-received">
+            <!-- <div class="message-received mb-3">
+            <img
+            src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwfad6465a/images/funko/upload/65759-POP-TV-The-Office---Fun-Run-Dwight-_GLAM-WEB.png?sw=800&sh=800"
+            alt="">
+            <div class="rec-msg">
+              <p>User 3</p>
+              <p>Hi is this available?</p>
             </div>
+            <form action="/api/messages" method="post">
+              <button class="btn btn-success reply-btn" type="submit">Reply</button>
+            </form>
+          </div> -->
+          </div>
+
         </div>
 
         <div>
           <div class="message-collection mb-3">
             <div class="sent-msg">
-            
+
             </div>
-            </div>
+          </div>
         </div>
 
         <div class="send-message mb-4">
