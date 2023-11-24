@@ -1,42 +1,24 @@
 const db = require('../connection');
 
 const getMessages = (senderId, receiverId) => {
-  let queryString = `
-    SELECT
-      *
-    FROM
-      messages
-    JOIN
-      users AS sender ON messages.sender_id = sender.id
-    JOIN
-      users AS receiver ON messages.receiver_id = receiver.id
-    JOIN
-      products ON messages.product_id = products.id`;
+  const queryString = `
+  SELECT messages.*, users.username AS sender_name, products.thumbnail_photo_url
+  FROM messages
+  JOIN users ON users.id = messages.sender_id
+  JOIN products ON products.id = messages.product_id
+  WHERE (messages.sender_id = $1 AND messages.receiver_id = $2)
+  OR (messages.sender_id = $2 AND messages.receiver_id = $1)
+  ORDER BY messages.sent_date;
+  `;
 
-  const queryParams = [];
+  const values = [senderId, receiverId];
 
-  if (senderId && receiverId) {
-    // If both senderId and receiverId are provided, filter messages by sender and receiver
-    queryString += `
-        WHERE
-          (messages.sender_id = $1 AND messages.receiver_id = $2)
-          OR
-          (messages.sender_id = $2 AND messages.receiver_id = $1)`;
-
-    queryParams.push(senderId, receiverId);
-  }
-
-  queryString += `
-      ORDER BY
-        messages.sent_date ASC;`;
-
-  console.log('SQL Query:', queryString, 'with parameters:', queryParams); // Add this line
-
-  return db.query(queryString, queryParams)
-    .then(res => res.rows)
+  return db.query(queryString, values)
+    .then(data => {
+      return data.rows;
+    })
     .catch(err => {
-      console.error('Error executing query:', err);
-      throw err;
+      console.error('Error executing getMessages query', err);
     });
 };
 
