@@ -1,6 +1,6 @@
 # Hagglehub
 
-#### The Punko Fops Store image
+#### The Funko Pops Store image
 
 #### Admin Products page
 
