@@ -5,6 +5,6 @@ INSERT INTO messages (product_id, sender_id, receiver_id, content, sent_date) VA
 
 (3, 8, 1, 'Would you accept a lower price?', '2023-03-12 15:45:00'),
 
--- (3, 1, 8, 'No we do not accept lower prices. We do have similar Funko Pops that may suit the price range that you are looking for!', '2023-03-13 09:20:00'),
+-- (3, 1, 8, 'No sorry!', '2023-03-13 09:20:00'),
 
 (5, 7, 3, 'Do you have more photos of the item?', '2023-03-14 16:15:00')

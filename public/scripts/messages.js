@@ -22,7 +22,7 @@ $(document).ready(function() {
     $.get(`/api/messages/${loggedInUserId}/${selectedUserId}`)
       .then(messages => {
         console.log("Fetched Messages: ", messages);
-        
+
         displayReceivedMessages(messages);
       })
       .catch(err => {
@@ -74,7 +74,6 @@ const displayReceivedMessages = (messages) => {
       <div class="mb-3 full-msg">
       <div class="product-info">
         <img src="${msg.thumbnail_photo_url}" alt="Product Image">
-        <p>${msg.sender_id.username} says:</p>
         </div>
         <div class="msg-content">
         <div class="rec-msg">
@@ -87,7 +86,6 @@ const displayReceivedMessages = (messages) => {
       </div>
     `);
     messagesContainer.append(messageElement);
-    // console.log(msg);
   });
 };
 
@@ -103,10 +101,13 @@ const sendMessage = function(content, senderId, receiverId, productId) {
 
 const displaySentMessage = function(message) {
   const sentMessageContainer = $('.message-collection');
-  const newMessageElement = $('<div>').addClass('message mb-3')
-    .append($('<img>').attr('src', message.thumbnail_photo_url))
-    .append($('<div>').addClass('rec-msg')
-      .append($('<p>').text(message.content)));
+
+  const newMessageElement = $(`
+      <div class="sent-msg">
+        <p>${message.sender_name}: ${message.content}</p>
+      </div>
+ `);
+
   sentMessageContainer.append(newMessageElement);
 };
 
