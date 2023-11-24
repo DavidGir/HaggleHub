@@ -1,13 +1,20 @@
 # Hagglehub
 
-[#### The Punko Fops Store image ]
-Admin Products page
+#### The Punko Fops Store image
+
+#### Admin Products page
+
 ![Admin Products Page](https://github.com/DavidGir/HaggleHub/blob/main/ScreenShots/Admin-Products%20page.png)
-Customer Products
+#### Customer Products
+
 ![Customer Products Page](https://github.com/DavidGir/HaggleHub/blob/main/ScreenShots/Customer%20Product-page.png)
-Favorites Page
+
+#### Favorites Page
+
 ![Favorites page](https://github.com/DavidGir/HaggleHub/blob/main/ScreenShots/Favorites-page.png)
-Messages
+
+#### Messages Page
+
 ![Messages page](https://github.com/DavidGir/HaggleHub/blob/main/ScreenShots/Messages-page.png)
 
 
