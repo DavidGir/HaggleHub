@@ -30,11 +30,13 @@ An app where you can purchase Funko Pop! Toys & Vinyl Figures! for sale. You can
 
 This WebApp, Hagglehub, was the first experience that either members of our group had ever built. As such, it was important to find common ground as early in the process as possible to reduce any miscommunication, and unwanted team dynamic. To combat this, we did the following:
 
-Invested timee in the planning phase to design our user stories. This user story was aligned with the project requirements in mind but we felt it was important to add our own touch to it. On a whim fueled by good humor and coincidence, we settled on creating a store based on 'Funko Pop! Toys & Vinyl Figures'!.
+Invested time in the planning phase to design our user stories. This user story was aligned with the project requirements in mind but we felt it was important to add our own touch to it. On a whim fueled by good humor and coincidence, we settled on creating a store based on 'Funko Pop! Toys & Vinyl Figures'!.
+
+Created the ERD and Database Schema. 
 
 ## Installation
 
-To set up the project locally, we followed these steps:
+To set up the project locally:
 ```
 
 1. Clone the repository:
@@ -42,11 +44,9 @@ bash
 
   $ git clone https://github.com/lighthouse-labs/node-skeleton
   
- 
-2. Navigate to the Project Directory
+ 2. Navigate to the Project Directory
 
   $  cd your-project
-
 
 3. Install Dependencies
 
@@ -55,17 +55,16 @@ bash
 
 ```
 ## Database setup
-To set up the database, we followed these steps:
+To set up the database:
 
 ```
-
   $ npm install pg
 
 1.Start Postgrest server
 
   $ startpostgres
 
-2. Enter Postgres to begin creating schema and addig data to 
+2. Enter Postgres to begin creating schema and adding data to 
 
   $  psql
 
@@ -112,7 +111,7 @@ To set up the database, we followed these steps:
  - cookie-session
 
 ## Contributing
-This webApp was a labor of love of the LHL Alpha Group Trio. Comprised of Ana Franco, David Giroux and Gerald Mwangi. It was 
+This webApp was a labor of love of the LHL Alpha Group Trio. Comprised of Ana Franco, David Giroux and Gerald Mwangi. Many thanks to the instructors and mentors OF LHL whose opinions helped us build it.
 
 ## License
  This project is licensed under the imaginary demo License of 2023. It does not expire nor is it issuable to anyone other than LHL Cohort of 16 Oct West. Any use of this license must be approved after by a commitee of the LHL Alpha Group with a minimum wait period of 42 days since the date of license request.
