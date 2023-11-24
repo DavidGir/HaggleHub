@@ -23,20 +23,28 @@ body {
       text-align: center;
     }
 
+    .message-collection {
+      .sent-msg {
+        background: white;
+        border-radius: 20px;
+        margin: 9px;
+        padding: 10px;
+        width: 30%;
+        margin-left: 695px;
 
-    .message-collecction {
-      background: white;
+        p {
+          margin-left: 7px;
+        }
+      }
     }
 
     .message-received {
-      // border: 1px solid red;
       border-radius: 15px;
       width: 60vw;
       min-height: 35vh;
       display: flex;
       justify-content: space-evenly;
       flex-wrap: wrap;
-      // background-color: rgba(128, 128, 128, 0.514);
 
       .full-msg {
         display: flex;
@@ -86,7 +94,6 @@ body {
       display: none;
 
       form {
-
         textarea {
           border-style: none;
           border-radius: 15px;

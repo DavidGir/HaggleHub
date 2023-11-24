@@ -104,14 +104,15 @@ const sendMessage = function(content, senderId, receiverId, productId) {
 
 const displaySentMessage = function(message) {
   const sentMessageContainer = $('.message-collection');
+  sentMessageContainer.empty();
 
   const newMessageElement = $(`
       <div class="sent-msg">
-        <p>${message.sender_name}: ${message.content}</p>
+        <p>${message.content}</p>
       </div>
  `);
 
-  sentMessageContainer.append(newMessageElement);
+  sentMessageContainer.html(newMessageElement);
 };
 
 
