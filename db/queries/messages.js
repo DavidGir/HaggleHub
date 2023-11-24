@@ -62,4 +62,46 @@ const sendMessage = (product_id, sender_id, receiver_id, content, sent_date) => 
     });
 };
 
-module.exports = { getMessages, sendMessage };
+const getUsersWithMessages = (userId) => {
+  const queryString = `
+    SELECT DISTINCT ON (users.id) users.id, users.username, users.email
+    FROM messages
+    JOIN users ON users.id = messages.sender_id OR users.id = messages.receiver_id
+    WHERE (messages.sender_id = $1 OR messages.receiver_id = $1) AND users.id != $1;
+  `;
+
+  const values = [userId];
+
+  return db.query(queryString, values)
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      console.log('Error executing getUsersWithMessages query', err.message);
+    });
+
+};
+
+// The function below should retrieve all messages where either sender_id or receiver_id matches either of the two user IDs:
+
+const getConversationBetweenUsers = (userId1, userId2) => {
+  const queryString = `
+    SELECT messages.*, users.username AS sender_username
+    FROM messages
+    JOIN users ON users.id = messages.sender_id
+    WHERE (messages.sender_id = $1 AND messages.receiver_id = $2) OR (messages.sender_id = $2 AND messages.receiver_id = $1)
+    ORDER BY messages.sent_date ASC;
+  `;
+
+  const values = [userId1, userId2];
+
+  return db.query(queryString, values)
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      console.log('Error executing getConversationBetweenUsers query', err.message);
+    });
+};
+
+module.exports = { getMessages, sendMessage, getUsersWithMessages, getConversationBetweenUsers };
