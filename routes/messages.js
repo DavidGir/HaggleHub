@@ -8,10 +8,6 @@ router.get('/', (req, res) => {
     user: req.session.user,
     productId
   };
-  if (!req.session.user) {
-    // Redirect to login page or render an error page if the user is not logged in:
-    return res.redirect('/login');
-  }
   res.render('messages', templateVars);
 });
 
