@@ -115,7 +115,20 @@ $('#filter-items').on('submit', function(event) {
     max_price: $('#max-price').val()
   };
   sendFilterRequest(filters);
+  clearFilterForm();
 });
+
+// Function to clear Filter form after submission
+const clearFilterForm = function() {
+  const $form = $('#filter-form');
+  const $category = $form.find('#category');
+  const $min_price = $form.find('#min-price');
+  const $max_price = $form.find('#max-price');
+
+  $category.val('');
+  $min_price.val('');
+  $max_price.val('');
+}
 
 // Attach event handler for delete button on products page:
 $(document).on('click', '.delete.btn.btn-outline-danger', function(event) {
@@ -213,7 +226,7 @@ const createPopup = function(singleObj) {
         <button title="Add to Favorites" class="fav-btn btn btn-outline-danger" data-product-id="${singleObj.id}">
          <i class="fa-solid fa-heart" style="color: #383838;"></i>
         </button>
-        <button title="Email" class="email-btn btn btn-outline-blue" data-product-id="${singleObj.id}"><i class="fa-solid fa-envelope" style="color: #383838;"></i>
+        <button title="Message seller about this product" class="email-btn btn btn-outline-blue" data-product-id="${singleObj.id}"><i class="fa-solid fa-envelope" style="color: #383838;"></i>
         </button>
       </span>
     <div class="product-info">
@@ -267,8 +280,28 @@ $('#product-form').on('submit', function(e) {
   const formData = $(this).serialize();
   $.post('/api/products', formData).then((res) => {
     loadProducts();
+    clearNewItemForm();
   });
 });
 
+// Function to clear New Item form after submission
+const clearNewItemForm = function() {
+  const $form = $('#product-form');
+  const $title = $form.find('#title');
+  const $category = $form.find('#category');
+  const $thumbnail_photo_url = $form.find('#thumbnail_photo_url');
+  const $photo_url = $form.find('#photo_url');
+  const $description = $form.find('#description');
+  const $price = $form.find('#price');
+  const $current_inventory = $form.find('#current_inventory');
+
+  $title.val('');
+  $category.val('');
+  $thumbnail_photo_url.val('');
+  $photo_url.val('');
+  $description.val('');
+  $price.val('');
+  $current_inventory.val('');
+}
 
 
