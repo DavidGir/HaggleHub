@@ -1,5 +1,7 @@
 body {
   background: #f0ece2;
+  font-family: "Changa", sans-serif;
+
 
   #hero {
     /* Sizing */
@@ -15,14 +17,16 @@ body {
     text-align: center;
 
     /* Background styles */
-    background-image: url(https://lastminutecontinue.com/wp-content/uploads/header_funkopop.jpg);
+    background-image: url(https://i.ibb.co/p4Fd6Pz/funko-hagglehub-hero.png);
     background-size: cover;
     background-position: center;
 
     .hero-inner {
-      background-color: #f0ece2;
+      background-color: rgb(157 146 145 / 44%);
       border-radius: 15px;
       padding: 20px;
+      color: white;
+      text-shadow: 2px 2px #4b3b3b;
     }
   }
 
@@ -45,8 +49,13 @@ body {
     z-index: 1; /* Ensure it's above other content */
   }
 
-  #filter-items {
+  .no-user {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+  }
 
+  #filter-items {
     button.ext-search {
       display: flex;
       margin: 10px auto;
@@ -69,11 +78,12 @@ body {
       display: flex;
       justify-content: center;
     }
-
   }
 
-  .category-title {
-    margin-left: 55px;
+  .single-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   section div.pop {
@@ -88,12 +98,14 @@ body {
     width: 50%;
     margin: 0 auto;
     margin-bottom: 15px;
+    box-shadow: 5px 5px 1px 491px rgba(0,0,0,0.7);
 
     span button {
       font-weight: bold;
       font-size: x-small;
       border-radius: 15px;
-      padding: 6px 10px;}
+      padding: 6px 10px;
+    }
 
     .close-popup-btn {
       display: flex;
@@ -108,16 +120,46 @@ body {
       padding: 9px;
     }
 
+    .email-btn {
+      display: flex;
+      position: fixed;
+      transform: translate(280px, 10px);
+      padding: 9px;
+    }
+
+    .btn-outline-blue {
+      color: blue;
+      border: 1px solid blue;
+      background-color: transparent;
+    }
+
+    .btn-outline-blue:hover {
+      color: white;
+      background-color: blue;
+    }
 
     div {
       display: flex;
       flex-direction: column;
-      align-self:center
+      align-self: center;
     }
     img {
+      border-radius: 15px;
       max-height: 500px;
       max-width: 500px;
     }
+
+    .product-info {
+      background-color: #f0ece2;
+      margin-right: 100px;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .buy {
+      color: #BB2D3B
+    }
+
   }
 
   #products {
@@ -132,6 +174,10 @@ body {
       background-color: white;
       border-radius: 15px;
       margin: 15px;
+    }
+
+    p.product-title:hover {
+      cursor: pointer;
     }
   }
 }

@@ -30,7 +30,7 @@
 - [X] Implement user registration and login.
 
 ### Afternoon: Backend Continuation & Frontend Setup
-- [ ] Admin functionalities implementation.
+- [X] Admin functionalities implementation.
 - [X] Start frontend environment setup.
 
 ## Day 3: Frontend Development
@@ -40,14 +40,14 @@
 - [X] Implement item filtering by price.
 
 ### Afternoon: Additional Frontend Features
-- [ ] Implement favorites feature.
-- [ ] Start messaging interface.
+- [X] Implement favorites feature.
+- [X] Start messaging interface.
 
 ## Day 4: Integration & Testing
 
 ### Morning: Integration
-- [ ] Integrate frontend with backend APIs.
-- [ ] Ensure correct data flow.
+- [X] Integrate frontend with backend APIs.
+- [X] Ensure correct data flow.
 
 ### Afternoon: Testing & Debugging
 - [ ] Conduct testing.
@@ -56,8 +56,8 @@
 ## Day 5: Final Touches & Presentation Prep
 
 ### Morning: Polishing & Documentation
-- [ ] Refine UI/UX.
-- [ ] Document the project.
+- [X] Refine UI/UX.
+- [ ] Document the project. *Under progress
 
 ### Afternoon: Presentation Preparation
 - [ ] Prepare app demo.

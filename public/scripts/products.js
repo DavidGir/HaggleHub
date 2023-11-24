@@ -14,7 +14,7 @@ const renderProducts = function(arrOfProducts) {
   $('#products').empty();
   for (const product of arrOfProducts) {
     const $productElement = createProductElement(product);
-    $('#products').append($productElement);
+    $('#products').append($productElement).slideDown('slow');
   }
 };
 
@@ -35,8 +35,8 @@ const createProductElement = function(productsObj) {
     `<div class="single-product" id="${productsObj.id}">
       <a href="" method="post" action="/api/products">
         <img src="${productsObj.thumbnail_photo_url}" alt="">
-        <p>${productsObj.title}</p>
-      </a>
+        </a>
+        <p class="product-title">${productsObj.title}</p>
       ${adminButtons}
     </div>`
   );
@@ -74,7 +74,7 @@ const createFavoriteElement = function(favoritesObj) {
           <h3 class="item-name">${favoritesObj.title}</h3>
         </a>
           <p class="item-price">$ ${favoritesObj.price}</p>
-          <button class="delete-favorite" data-product-id="${favoritesObj.id}">Delete</button>
+          <button class="delete-favorite btn btn-danger btn-sm" data-product-id="${favoritesObj.id}">Delete</button>
         </div>
     </div>`
   );
@@ -92,6 +92,12 @@ const loadFavorites = function() {
 /////////////////////////////////////////
 //       Ajax request for filters
 /////////////////////////////////////////
+
+/* Show/hide filter form */
+$('#show-filter').on('click', function() {
+  $('#filter-form').toggle('slow');
+});
+
 
 const sendFilterRequest = (filters) => {
   $.get('/api/products', filters)
@@ -118,7 +124,7 @@ $(document).on('click', '.delete.btn.btn-outline-danger', function(event) {
 
   if (confirm('Are you sure you want to delete this product?')) {
     $.post(`api/products/${productId}/delete`)
-      .then(()=> {
+      .then(() => {
         console.log('Product deleted successfully');
         $(`#product-${productId}`).remove();
         loadProducts();
@@ -136,7 +142,7 @@ $(document).on('click', '.sold.btn.btn-outline-success', function(event) {
   const productId = $(this).data('product-id');
 
   $.post(`api/products/${productId}/sold`)
-    .then(()=> {
+    .then(() => {
       console.log('Product sold');
       $(this).closest('.single-product').addClass('sold-out');
       alert('Product has been marked as sold.');
@@ -207,17 +213,16 @@ const createPopup = function(singleObj) {
         <button title="Add to Favorites" class="fav-btn btn btn-outline-danger" data-product-id="${singleObj.id}">
          <i class="fa-solid fa-heart" style="color: #383838;"></i>
         </button>
-        <button class="email-btn" data-product-id="${singleObj.id}">📧</button>
+        <button title="Email" class="email-btn btn btn-outline-blue" data-product-id="${singleObj.id}"><i class="fa-solid fa-envelope" style="color: #383838;"></i>
+        </button>
       </span>
-    <div>
-      <p>ON SALE!</p>
-      <h3>${singleObj.title}</h3>
-      <p>${singleObj.rating}/5</p>
-      <p>$ ${singleObj.price}</p>
+    <div class="product-info">
+      <h2>${singleObj.title}</h2>
+      <h4>$ ${singleObj.price}</h4>
       <p>${singleObj.description}</p>
       <p>Quantity available: ${singleObj.current_inventory}</p>
 
-      <a href="#">Add to cart</a>
+      <a class="buy" href="#">Add to cart</a>
     </div>
   `;
 
@@ -247,6 +252,14 @@ $(document).on('click', '.close-popup-btn', function() {
 ////////////////////////////////////////////////
 //  Ajax request to load new added product
 ////////////////////////////////////////////////
+
+
+/* Show/hide add new item form */
+
+$('#show-add-item').on('click', function() {
+  $('#product-form').toggle('slow');
+});
+
 
 $('#product-form').on('submit', function(e) {
   e.preventDefault();

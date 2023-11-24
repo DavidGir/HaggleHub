@@ -23,7 +23,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+
   <script defer src="/scripts/app.js"></script>
+  <script>
+    const loggedInUserId = <%- JSON.stringify(user.id) %>;
+  </script>
+  <script defer src="/scripts/messages.js"></script>
+
 </head>
 
 <body>
@@ -32,28 +38,36 @@
     <div class="main-container mt-4 mb-4">
       <aside class="sidebar">
         <div class="user-btns">
-          <a class="btn btn-success" href="#">User 1</a>
-          <a class="btn btn-success" href="#">User 3</a>
+          <a class="btn btn-success user-btn" href="#" data-user-id="1">User 1</a>
+         <a class="btn btn-success user-btn" href="#" data-user-id="3">User 3</a>
         </div>
       </aside>
 
       <main>
-        <!-- <div> -->
+        <div>
           <div class="message-received mb-3">
               <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwfad6465a/images/funko/upload/65759-POP-TV-The-Office---Fun-Run-Dwight-_GLAM-WEB.png?sw=800&sh=800" alt="">
               <div class="rec-msg">
                 <p>User 3</p>
                 <p>Hi is this available?</p>
               </div>
-                <form action="">
-                <button class="btn btn-success" type="submit">Reply</button>
-                </form>
+              <form action="/api/messages" method="post">
+                <button class="btn btn-success reply-btn" type="submit">Reply</button>
+              </form>
             </div>
-        <!-- </div> -->
+        </div>
+
+        <div>
+          <div class="message-collection mb-3">
+            <div class="sent-msg">
+            
+            </div>
+            </div>
+        </div>
 
         <div class="send-message mb-4">
-          <form action="">
-            <textarea name="" id="" cols="100" rows="5"></textarea>
+          <form action="/api/messages" method="post">
+            <textarea name="message-content" id="message-content" cols="100" rows="5"></textarea>
             <button class="btn btn-success" type="submit">Send</button>
           </form>
         </div>
