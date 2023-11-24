@@ -8,6 +8,9 @@ const database = require('../db/queries/messages');
 router.get('/', (req, res) => {
   const { senderId, receiverId } = req.query;
 
+  console.log('Sender ID:', senderId);
+  console.log('Receiver ID:', receiverId);
+
   if (!senderId && !receiverId) {
     // If no parameters are provided, retrieve all messages
     database.getMessages()
@@ -40,6 +43,8 @@ router.get('/:senderId/:receiverId', (req, res) => {
 
 // Route to handle sending messages
 router.post('/', (req, res) => {
+  console.log('Received POST request with body:', req.body);
+
   const { productId, senderId, receiverId, content, sent_date } = req.body;
 
   // Add any validation or error handling as needed
