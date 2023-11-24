@@ -39,8 +39,6 @@ app.use(cookieSession({
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const usersRoutes = require('./routes/users');
 const productApiRoutes = require('./routes/products-api');
 const productRoutes = require('./routes/products');
 const registerRoutes = require('./routes/register');
@@ -51,13 +49,10 @@ const messageApiRoutes = require('./routes/messages-api');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/users', usersRoutes);
 app.use('/api/products', productApiRoutes);
 app.use('/api/products/favorites', productApiRoutes);
 app.use('/products', productRoutes);
 app.use('/register', registerRoutes);
-app.use('/admin', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/messages', messageRoutes);
 app.use('/api/messages', messageApiRoutes);
