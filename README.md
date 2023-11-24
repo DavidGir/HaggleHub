@@ -110,6 +110,10 @@ To set up the database:
  - sassMiddleware
  - cookie-session
 
+### Features
+
+
+
 ## Contributing
 This webApp was a labor of love of the LHL Alpha Group Trio. Comprised of Ana Franco, David Giroux and Gerald Mwangi. Many thanks to the instructors and mentors OF LHL whose opinions helped us build it.
 
