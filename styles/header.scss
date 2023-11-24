@@ -25,6 +25,7 @@ header {
 
     .logo {
       font-size: 1.5rem;
+      margin-left: 15px;
       font-weight: bold;
     }
 
@@ -48,13 +49,14 @@ header {
 
       .user-funct {
         display: flex;
-        
+
       }
     }
 
     .header-icons {
       display: flex;
       align-items: center;
+      margin-right: 15px;
 
       > div {
         margin-left: 20px;
