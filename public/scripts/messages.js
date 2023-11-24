@@ -89,7 +89,6 @@ const displayReceivedMessages = (messages) => {
       </div>
     `);
     messagesContainer.append(messageElement);
-    // console.log(msg);
   });
 };
 
@@ -105,10 +104,13 @@ const sendMessage = function(content, senderId, receiverId, productId) {
 
 const displaySentMessage = function(message) {
   const sentMessageContainer = $('.message-collection');
-  const newMessageElement = $('<div>').addClass('message mb-3')
-    .append($('<img>').attr('src', message.thumbnail_photo_url))
-    .append($('<div>').addClass('rec-msg')
-      .append($('<p>').text(message.content)));
+
+  const newMessageElement = $(`
+      <div class="sent-msg">
+        <p>${message.sender_name}: ${message.content}</p>
+      </div>
+ `);
+
   sentMessageContainer.append(newMessageElement);
 };
 
