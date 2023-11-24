@@ -13,12 +13,16 @@ Messages
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Project Setup](#projectSetup)
 - [Installation](#installation)
+- [Database Setup](#databaseSetup)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Routes](#routes)
 - [Middleware](#middleware)
 - [Dependencies](#dependencies)
+- [Future Developments](#futureDevelopments)
+- [Challenges](#challenges)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -28,11 +32,17 @@ An app where you can purchase Funko Pop! Toys & Vinyl Figures! for sale. You can
 
 ## Project Setup
 
-This WebApp, Hagglehub, was the first experience that either members of our group had ever built. As such, it was important to find common ground as early in the process as possible to reduce any miscommunication, and unwanted team dynamic. To combat this, we did the following:
+This WebApp, HaggleHub, was the first experience that either member of our group had ever built. As such, it was important to find common ground as early in the process as possible to reduce any miscommunication and unwanted team dynamic. To combat this, we did the following:
 
-Invested time in the planning phase to design our user stories. This user story was aligned with the project requirements in mind but we felt it was important to add our own touch to it. On a whim fueled by good humor and coincidence, we settled on creating a store based on 'Funko Pop! Toys & Vinyl Figures'!.
+- Built a project plan outline on a five day development period.
+- Held daily morning SCRUM meetings. 
+- Invested time in the planning phase to design our user stories.
+- Created the ERD and Database Schemas.
 
-Created the ERD and Database Schema. 
+## Completed Features
+
+- In-App Messaging: Currently a work in progress, this feature aims to facilitate communication between buyers and sellers directly within the app.
+- User Requirements and Admin Specific Features: We've implemented core functionalities tailored to both regular users and admins, ensuring a robust and secure experience for managing listings and user interactions.
 
 ## Installation
 
@@ -89,13 +99,13 @@ To set up the database:
 
 ## Routes
  ### User/Login/Logout Routes:
- These routes are responsible for handling user authentification and user/admin authorization.
+ These routes are responsible for handling user authentication and user/admin authorization.
 
   ### Product Routes:
  These routes are responsible for product categorization, product updating, deletion and information(stock) modification, as in the case of use by admin.
 
  ### Message Routes:
- The reoutes primarily deal with messaging between user and admin. Due to the nature of time, these messages are attached to product id. Should we have more resourcces, we would love to expand these routes to include sockets for live chat functionality.
+ The routes primarily deal with messaging between user and admin. Due to the nature of time, these messages are attached to product id. Should we have more resources, we would love to expand these routes to include sockets for live chat functionality.
 
 ### Middleware
  - morgan: HTTP request logger middleware.
@@ -105,18 +115,34 @@ To set up the database:
  - cookieSession: Middleware for parsing incoming cookies.
 
 ### Dependencies
- - express
- - morgan
- - sassMiddleware
- - cookie-session
+- bcryptjs
+- chalk
+- cookie-session
+- dotenv
+- ejs
+- express
+- morgan
+- pg
+- sass
 
-### Features
+### Future Developments
 
+- Item Reviews: Incorporating a review system.
+- Cart Functionality: Adding a shopping cart.
+- Third-Party Authentication: Implementing more login options.
+- Marketing Landing Page: Developing a dedicated landing page.
+- Real-Time Messaging API: Upgrading the messaging system.
+- User Feedback: Continuously improving based on user suggestions.
+- Admin Features: Expanding the capabilities for admin users.
 
+### Challenges
+- Route/Endpoint Definition: Challenges in defining routes and endpoints.
+- Backend-Frontend Integration: Ensuring seamless integration.
+- In-App Messaging: Ongoing development of a robust messaging system.
 
 ## Contributing
 This webApp was a labor of love of the LHL Alpha Group Trio. Comprised of Ana Franco, David Giroux and Gerald Mwangi. Many thanks to the instructors and mentors OF LHL whose opinions helped us build it.
 
 ## License
- This project is licensed under the imaginary demo License of 2023. It does not expire nor is it issuable to anyone other than LHL Cohort of 16 Oct West. Any use of this license must be approved after by a commitee of the LHL Alpha Group with a minimum wait period of 42 days since the date of license request.
+ This project is licensed under the imaginary demo License of 2023. It does not expire nor is it issuable to anyone other than LHL Cohort of 16 Oct West. Any use of this license must be approved after by a committee of the LHL Alpha Group with a minimum wait period of 42 days since the date of license request.
 
