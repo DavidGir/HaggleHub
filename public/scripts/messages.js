@@ -21,6 +21,8 @@ $(document).ready(function() {
   const fetchAndDisplayMessages = function(selectedUserId, loggedInUserId) {
     $.get(`/api/messages/${loggedInUserId}/${selectedUserId}`)
       .then(messages => {
+        console.log("Fetched Messages: ", messages);
+        
         displayReceivedMessages(messages);
       })
       .catch(err => {
@@ -72,7 +74,7 @@ const displayReceivedMessages = (messages) => {
       <div class="message-received mb-3">
         <img src="${msg.thumbnail_photo_url}" alt="Product Image">
         <div class="rec-msg">
-          <p>${msg.content}</p>
+          <p>${msg.sender_name}: ${msg.content}</p>
         </div>
         <form action="/messages">
           <button class="btn btn-success reply-btn" data-sender-id="${msg.sender_id}" data-product-id="${msg.product_id}">Reply</button>
